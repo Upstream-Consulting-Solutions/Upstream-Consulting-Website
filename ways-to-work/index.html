@@ -351,14 +351,12 @@ body {
    ══════════════════════════════════════════════════════════ */
 
 /* Heading-semantics resets — these classes are now h2/h3 (was span/div).
-   Neutralize UA margins + font defaults so rendering stays pixel-identical;
-   each class rule below already fully specifies font + color. */
-h2.sector-eyebrow,
-h3.gate-title,
-h3.range-name,
-h3.offer-name {
+   :where() keeps specificity at zero so the class rules below always win;
+   this only neutralizes UA heading defaults the classes don't specify. */
+:where(h2.sector-eyebrow, h3.gate-title, h3.range-name, h3.offer-name) {
   margin: 0;
   font-weight: 400;
+  font-size: inherit;
 }
 
 /* Accessible focus ring — Editorial accent */
