@@ -178,23 +178,25 @@ p + p { margin-top: 1rem; }
 }
 .nav-logo span {
   font-weight: 800;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--white);
   letter-spacing: -.02em;
+  white-space: nowrap;
 }
 .nav-logo:hover span { color: var(--gold); }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 28px;
+  gap: 20px;
   align-items: center;
 }
 .nav-links a {
   color: rgba(255,255,255,.75);
-  font-size: .92rem;
+  font-size: .86rem;
   font-weight: 500;
   position: relative;
+  white-space: nowrap;
 }
 .nav-links a:hover { color: var(--white); }
 .nav-links a::after {
@@ -716,13 +718,8 @@ section {
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 768px) {
-  section { padding: 40px 0; }
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.6rem; }
-  .hero { padding: 100px 0 60px; }
-
-  /* Mobile nav */
+/* Nav collapses to hamburger before the links would crowd */
+@media (max-width: 900px) {
   .hamburger { display: flex; }
   .nav-links {
     position: fixed;
@@ -752,6 +749,13 @@ section {
     background: rgba(255,255,255,.06);
   }
   .nav-links a::after { display: none; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 40px 0; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  .hero { padding: 100px 0 60px; }
 
   .service-block {
     flex-direction: column;
