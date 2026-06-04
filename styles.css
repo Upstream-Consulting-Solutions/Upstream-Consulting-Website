@@ -644,6 +644,17 @@ section {
   margin-bottom: .5rem;
 }
 .footer-col a:hover { color: var(--gold); }
+.footer-tagline {
+  color: rgba(255,255,255,.6);
+  font-size: .92rem;
+  line-height: 1.65;
+  max-width: 30ch;
+}
+.footer-meta {
+  color: rgba(255,255,255,.45);
+  font-size: .85rem;
+  margin-top: .25rem;
+}
 
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.1);
