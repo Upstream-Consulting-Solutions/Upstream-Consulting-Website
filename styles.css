@@ -385,6 +385,10 @@ section {
 .dark-section h3 { color: var(--white); }
 .dark-section p { color: rgba(255,255,255,.8); }
 .dark-section a { color: var(--gold); }
+/* buttons keep their own text color inside dark sections */
+.dark-section a.btn-primary { color: var(--charcoal); }
+.dark-section a.btn-outline { color: var(--white); }
+.dark-section a.btn-outline:hover { color: var(--charcoal); }
 
 .alt-bg { background: var(--off-white); }
 
