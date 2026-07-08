@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/images/favicon-256.png">
+  <link rel="apple-touch-icon" href="/images/favicon-256.png">
 <title>Ways to Work with Upstream</title>
 <meta name="description" content="How to start with Upstream and what it costs — from a single $250 working session to an org-wide AI rollout. Pick the entry point that fits where you are.">
 <link rel="canonical" href="https://upstreamconsulting.ca/ways-to-work/">
@@ -12,14 +15,21 @@
 <meta property="og:title" content="Ways to Work with Upstream">
 <meta property="og:description" content="How to start with Upstream and what it costs — from a single $250 working session to an org-wide AI rollout. Pick the entry point that fits where you are.">
 <meta property="og:url" content="https://upstreamconsulting.ca/ways-to-work/">
-<meta property="og:image" content="https://upstreamconsulting.ca/images/logo-invert-small.png">
+<meta property="og:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Upstream Consulting">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
 
-<link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Gotu&family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+
+/* Self-hosted brand fonts — no third-party request, no visitor-IP egress */
+@font-face { font-family:'Aboreto'; src:url('/fonts/Aboreto-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Gotu'; src:url('/fonts/Gotu-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Syne'; src:url('/fonts/Syne-VariableFont_wght.woff2') format('woff2-variations'); font-weight:400 800; font-style:normal; font-display:swap; }
 
 /* ══════════════════════════════════════════════════════════
    V4 TOKEN BLOCK — DO NOT MODIFY OR DUPLICATE
@@ -35,7 +45,7 @@
   /* Text */
   --fg-1:                 #1d1d1f;
   --fg-2:                 #3D3D3D;
-  --fg-muted:             #7b746b;
+  --fg-muted:             #6e6760;
   --fg-on-accent:         #ffffff;
 
   /* Borders */
@@ -126,7 +136,7 @@ body {
    ══════════════════════════════════════════════════════════ */
 .header {
   background: var(--neutral-inverse);
-  padding: calc(122px + var(--sp-5)) var(--sp-7) var(--sp-6);
+  padding: calc(76px + var(--sp-5)) var(--sp-7) var(--sp-6);
   position: relative;
   overflow: hidden;
 }
@@ -340,7 +350,7 @@ body {
    RESPONSIVE
    ══════════════════════════════════════════════════════════ */
 @media (max-width: 640px) {
-  .header  { padding: calc(64px + var(--sp-4)) var(--sp-4) var(--sp-5); }
+  .header  { padding: calc(76px + var(--sp-4)) var(--sp-4) var(--sp-5); }
   .content { padding: var(--sp-5) var(--sp-4); }
 }
 
@@ -1089,20 +1099,12 @@ body {
     <ul class="site-nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
       <li><a href="/behind-the-work/">Behind the Work</a></li>
-      <li><a href="/ai-integration/" class="active">AI Integration</a></li>
+      <li><a href="/ai-integration/">AI Integration</a></li>
+      <li><a href="/ways-to-work/" class="active">Ways to Work</a></li>
       <li><a href="/red/">Real Estate Dev</a></li>
       <li><a href="/system-development/">Systems Dev</a></li>
       <li><a href="/contact/">Contact</a></li>
     </ul>
-  </div>
-</nav>
-
-<!-- Section sub-nav -->
-<nav class="subnav" aria-label="AI Integration section">
-  <div class="subnav-inner">
-    <a href="/ai-integration/">Overview</a>
-    <a href="/sample-builds/">Sample Builds</a>
-    <a href="/ways-to-work/" class="active">Ways to Work</a>
   </div>
 </nav>
 
@@ -1389,7 +1391,7 @@ body {
     </div>
 
     <div class="sector-foot">
-      <a class="btn-primary" href="https://cal.com/upstream-consulting/60min" target="_blank" rel="noopener">
+      <a class="btn-primary" href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">
         Contact us for a tailored scope
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
@@ -1417,7 +1419,7 @@ body {
   <div class="site-footer-grid">
     <div class="site-footer-col">
       <h4>Upstream Consulting</h4>
-      <p class="footer-tagline">AI integration and project delivery for brick-and-mortar operators.</p>
+      <p class="footer-tagline">I map how your business runs, systemize it, and build in the AI where it fits — one person, end to end.</p>
     </div>
     <div class="site-footer-col">
       <h4>Services</h4>
@@ -1438,7 +1440,7 @@ body {
     <div class="site-footer-col">
       <h4>Get in Touch</h4>
       <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a>
-      <a href="https://cal.com/upstream-consulting/60min" target="_blank" rel="noopener">Book a call</a>
+      <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">Book a call</a>
       <p class="footer-meta">British Columbia, Canada</p>
     </div>
   </div>

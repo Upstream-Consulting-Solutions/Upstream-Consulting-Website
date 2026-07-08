@@ -2,7 +2,22 @@
    Upstream Consulting — Shared Styles
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Gotu&family=Syne:wght@400;500;600;700;800&display=swap');
+/* Self-hosted brand fonts — no third-party (Google Fonts) request, no visitor-IP egress */
+@font-face {
+  font-family: 'Aboreto';
+  src: url('/fonts/Aboreto-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Gotu';
+  src: url('/fonts/Gotu-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Syne';
+  src: url('/fonts/Syne-VariableFont_wght.woff2') format('woff2-variations');
+  font-weight: 400 800; font-style: normal; font-display: swap;
+}
 
 /* --- Reset & Base --- */
 *, *::before, *::after {
@@ -643,19 +658,19 @@ section {
 .footer-col p,
 .footer-col a {
   font-size: .9rem;
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.72);
   display: block;
   margin-bottom: .5rem;
 }
 .footer-col a:hover { color: var(--gold); }
 .footer-tagline {
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.72);
   font-size: .92rem;
   line-height: 1.65;
   max-width: 30ch;
 }
 .footer-meta {
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.68);
   font-size: .85rem;
   margin-top: .25rem;
 }
@@ -665,7 +680,7 @@ section {
   padding-top: 24px;
   font-size: .8rem;
   text-align: center;
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.62);
 }
 
 /* --- Back to Top --- */
@@ -922,6 +937,8 @@ section {
   }
 
   .contact-grid { grid-template-columns: 1fr; }
+  /* Booking card ahead of the long form on mobile — higher-intent action first */
+  .contact-grid > div:last-child { order: -1; }
   .cards-grid-3 { grid-template-columns: 1fr; }
   .bio-layout { flex-direction: column; align-items: center; }
   .bio-headshot { flex: 0 0 auto; width: 160px; height: 210px; }
@@ -936,4 +953,76 @@ section {
   h1 { font-size: 1.65rem; }
   .container { padding: 0 16px; }
   .btn { padding: 12px 24px; font-size: .95rem; }
+}
+
+/* ============================================
+   Signature motion — orb glow behind heroes
+   (pure CSS, mirrors the ways-to-work header orb)
+   ============================================ */
+.hero { position: relative; overflow: hidden; }
+.hero > .container { position: relative; z-index: 1; }
+
+/* Homepage photo hero — full-bleed image with charcoal wash for legibility */
+.hero--photo {
+  background-image: linear-gradient(rgba(29,29,31,.58) 0%, rgba(29,29,31,.68) 100%), url('/images/hero-home.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.hero--photo h1 { color: #fff; }
+.hero--photo p { color: rgba(255,255,255,.88); }
+.hero--photo::before, .hero--photo::after { display: none; } /* photo replaces the orb glow */
+.hero--photo .btn-outline { color: #fff; border-color: rgba(255,255,255,.7); }
+.hero--photo .btn-outline:hover { background: #fff; color: var(--charcoal); border-color: #fff; }
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -160px; right: -120px;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(165,118,99,.10) 0%, transparent 70%);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -180px; left: -140px;
+  width: 420px; height: 420px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(91,122,94,.07) 0%, transparent 70%);
+}
+.hero-band::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -100px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(216,163,107,.16) 0%, transparent 70%);
+}
+
+/* Scroll-reveal — sections fade up as they enter view (JS adds .is-visible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================
+   Reduced motion — honour the OS preference
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
 }

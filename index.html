@@ -3,40 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upstream Consulting | Project Delivery &amp; AI Integration for Brick &amp; Mortar</title>
-  <meta name="description" content="We build the systems that make businesses run smarter. Project delivery, AI integration, and operational clarity for brick and mortar operators.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/images/favicon-256.png">
+  <link rel="apple-touch-icon" href="/images/favicon-256.png">
+  <title>AI &amp; Operations Consultant in BC | Upstream Consulting</title>
+  <meta name="description" content="Every business runs on systems — most were never written down. Upstream maps how yours run, systemizes them, and builds in the AI where it fits. Process first. Based in BC, Canada.">
   <link rel="canonical" href="https://upstreamconsulting.ca/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Upstream Consulting | Project Delivery &amp; AI Integration for Brick &amp; Mortar">
-  <meta property="og:description" content="We build the systems that make businesses run smarter. Project delivery, AI integration, and operational clarity for brick and mortar operators.">
+  <meta property="og:title" content="AI &amp; Operations Consultant in BC | Upstream Consulting">
+  <meta property="og:description" content="Every business runs on systems — most were never written down. Upstream maps how yours run, systemizes them, and builds in the AI where it fits. Process first.">
   <meta property="og:url" content="https://upstreamconsulting.ca/">
-  <meta property="og:image" content="https://upstreamconsulting.ca/images/logo-invert-small.png">
+  <meta property="og:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Upstream Consulting">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Upstream Consulting | Project Delivery &amp; AI Integration for Brick &amp; Mortar">
-  <meta name="twitter:description" content="We build the systems that make businesses run smarter. Project delivery, AI integration, and operational clarity for brick and mortar operators.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
+  <meta name="twitter:title" content="AI &amp; Operations Consultant in BC | Upstream Consulting">
+  <meta name="twitter:description" content="Every business runs on systems — most were never written down. Upstream maps how yours run, systemizes them, and builds in the AI where it fits. Process first.">
 
-  <!-- Organization JSON-LD -->
+  <!-- ProfessionalService JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "ProfessionalService",
     "name": "Upstream Consulting",
+    "alternateName": "Upstream Consulting Solutions Inc.",
+    "description": "Operations and AI integration consulting for small and mid-sized businesses in British Columbia, Canada.",
     "url": "https://upstreamconsulting.ca/",
     "email": "levi@upstreamconsulting.ca",
-    "areaServed": "British Columbia",
+    "image": "https://upstreamconsulting.ca/images/og-card.jpg",
+    "logo": "https://upstreamconsulting.ca/images/favicon-256.png",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "British Columbia" },
+      { "@type": "Country", "name": "Canada" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "BC",
+      "addressCountry": "CA"
+    },
     "founder": {
       "@type": "Person",
       "name": "Levi Dick"
-    }
+    },
+    "knowsAbout": [
+      "AI integration",
+      "operations consulting",
+      "business systems development",
+      "project delivery",
+      "workflow automation"
+    ]
   }
   </script>
 
-  <link rel="stylesheet" href="/styles.css?v=2">
+  <link rel="stylesheet" href="/styles.css?v=4">
 </head>
 <body>
 
@@ -53,6 +78,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/behind-the-work/">Behind the Work</a></li>
         <li><a href="/ai-integration/">AI Integration</a></li>
+        <li><a href="/ways-to-work/">Ways to Work</a></li>
         <li><a href="/red/">Real Estate Dev</a></li>
         <li><a href="/system-development/">Systems Dev</a></li>
         <li><a href="/contact/">Contact</a></li>
@@ -61,12 +87,12 @@
   </nav>
 
   <!-- Hero -->
-  <!-- TODO: Replace hero-bg gradient with a real background image (construction/office/tech photo at 15% opacity) when available -->
-  <section class="hero hero-overlay hero-bg">
+  <section class="hero hero--photo">
     <div class="container">
-      <h1>We build the systems that make businesses run smarter</h1>
-      <p>From project delivery to AI integration — we bring structure, clarity, and results to brick and mortar operations.</p>
-      <a href="/contact/" class="btn btn-primary">Book a Free Consultation</a>
+      <h1>Every business runs on systems. Most were never written down.</h1>
+      <p>I map how yours actually work, systemize them, and build in the AI where it earns its place — process first, one person end to end. Fifteen years of it came from opening flagships for Aritzia, JOEY, and Gateway Casinos.</p>
+      <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary">Book a free intro call</a>
+      <a href="/ai-integration/" class="btn btn-outline" style="margin-left:12px;">See how it works</a>
     </div>
   </section>
 
@@ -76,69 +102,62 @@
   <section class="alt-bg" id="main" tabindex="-1">
     <div class="container">
       <div style="text-align:center; margin-bottom:3rem;">
-        <h2>What We Do</h2>
-        <p class="section-sub">Four capabilities. One goal — operational clarity.</p>
+        <h2>One Engagement, Four Layers</h2>
+        <p class="section-sub">Not four services to shop between — the same job, done in the right order.</p>
       </div>
 
       <!-- Service Block 1 — Project Strategy -->
       <div class="service-block" style="margin-bottom:28px;">
-        <div class="service-block-image" style="background-image:url('/images/project-strategy-setup.png');"></div>
+        <div class="service-block-image" style="background-image:url('/images/service-map.jpg');" role="img" aria-label="Overhead view of a team mapping a project on paper"></div>
         <div class="service-block-content">
-          <h3>Project Strategy &amp; Setup</h3>
-          <p class="card-italic">For clients who need a clear, actionable roadmap before breaking ground.</p>
-          <p>We scope, plan, and manage high-stakes projects from concept to completion. Stakeholder alignment, clear deliverables, and disciplined execution — every time.</p>
+          <h3>1 &middot; Map the Operation</h3>
+          <p class="card-italic">Before anything gets built.</p>
+          <p>I map how the work actually moves — who touches what, where it stalls, and the steps that only live in someone's head. Fifteen years as an owner's rep reading buildings, budgets, and crews is what tuned that eye.</p>
           <ul>
-            <li>Project scoping and delivery planning</li>
-            <li>Roles, timelines, and decision-making frameworks</li>
+            <li>Scope, roles, timelines, and decision-making frameworks</li>
             <li>Stakeholder coordination and accountability structures</li>
             <li>Risk assessment and mitigation planning</li>
-            <li>Onboarding packages for internal/external teams</li>
           </ul>
+          <p style="margin-top:1rem;"><a href="/red/">Where the read came from &rarr;</a></p>
         </div>
       </div>
 
       <!-- Service Block 2 — Technical Development -->
       <div class="service-block" style="margin-bottom:28px;">
-        <div class="service-block-image placeholder" style="background: linear-gradient(135deg, rgba(74,155,142,0.15) 0%, rgba(26,26,46,0.08) 100%); flex-direction:column; gap:8px;">
-          <span style="font-size:1.1rem; font-weight:700; color:var(--charcoal); letter-spacing:.04em;">Technical Development</span>
-          <span style="font-size:.8rem; color:var(--gray-400);">Image coming soon</span>
-        </div>
+        <div class="service-block-image" style="background-image:url('/images/service-systemize.jpg');" role="img" aria-label="Team reviewing plans and systems together"></div>
         <div class="service-block-content">
-          <h3>Technical Development and Integration</h3>
-          <p class="card-italic">For organizations ready to scale smarter with better tools and systems.</p>
-          <p>Platform setup and configuration — SharePoint, Procore, PlanGrid, ACC Build. We build the digital backbone your operations run on.</p>
+          <h3>2 &middot; Systemize the Workflows</h3>
+          <p class="card-italic">Turn the map into something your team can run.</p>
+          <p>The platforms, the SOPs, the backbone — built so the operation runs without the founder in the room. I've taken clients from a single spreadsheet to a full product ecosystem, and configured the tools they run on: SharePoint, Procore, PlanGrid, ACC Build, Microsoft 365.</p>
+          <p style="margin-top:1rem;"><a href="/system-development/">Systems I've built &rarr;</a></p>
         </div>
       </div>
 
       <!-- Service Block 3 — AI Integration -->
       <div class="service-block" style="margin-bottom:28px;">
-        <div class="service-block-image placeholder" style="background: linear-gradient(135deg, rgba(212,165,116,0.15) 0%, rgba(26,26,46,0.08) 100%); flex-direction:column; gap:8px;">
-          <span style="font-size:1.1rem; font-weight:700; color:var(--charcoal); letter-spacing:.04em;">AI Integration</span>
-          <span style="font-size:.8rem; color:var(--gray-400);">Image coming soon</span>
-        </div>
+        <div class="service-block-image" style="background-image:url('/images/service-ai.jpg');" role="img" aria-label="Working session with laptops and documents"></div>
         <div class="service-block-content">
-          <h3>AI Integration</h3>
-          <p class="card-italic">For operators ready to put AI to work — not as a science project, but as a working tool.</p>
-          <p>We deploy AI into your existing workflows. Champion training, phased rollout, and ongoing optimization built for brick and mortar operators.</p>
+          <h3>3 &middot; Wire in the AI</h3>
+          <p class="card-italic">AI lands on a process that already works.</p>
+          <p>Once the workflow is structured, AI goes in second — person by person, workflow by workflow, with the security and governance layer in place from day one. That's the difference between adoption and a license nobody opens twice.</p>
           <ul>
             <li>Executive and workforce intake mapping</li>
             <li>Internal AI champion selection and training</li>
             <li>Workflow automation and integration</li>
             <li>Monthly optimization and cost tracking</li>
           </ul>
+          <p style="margin-top:1rem;"><a href="/ai-integration/">How the rollout works &rarr;</a></p>
         </div>
       </div>
 
       <!-- Service Block 4 — Process & Enablement -->
       <div class="service-block">
-        <div class="service-block-image placeholder" style="background: linear-gradient(135deg, rgba(26,26,46,0.1) 0%, rgba(74,155,142,0.1) 100%); flex-direction:column; gap:8px;">
-          <span style="font-size:1.1rem; font-weight:700; color:var(--charcoal); letter-spacing:.04em;">Process &amp; Enablement</span>
-          <span style="font-size:.8rem; color:var(--gray-400);">Image coming soon</span>
-        </div>
+        <div class="service-block-image" style="background-image:url('/images/hero-home.jpg');" role="img" aria-label="Team collaborating over a shared workspace"></div>
         <div class="service-block-content">
-          <h3>Internal Process and Team Enablement</h3>
-          <p class="card-italic">For teams that need systems they can actually use after handoff.</p>
-          <p>Custom tools, SOPs, and documentation systems built for your team. We build for handoff — so you stay in control after we leave.</p>
+          <h3>4 &middot; Hand Your Team the Keys</h3>
+          <p class="card-italic">Built for handoff.</p>
+          <p>You run it after I leave — the systems, the tools, the documentation, the receipts. No dependency, no black box. See the kind of thing that ships.</p>
+          <p style="margin-top:1rem;"><a href="/sample-builds/">See sample builds &rarr;</a></p>
         </div>
       </div>
 
@@ -150,9 +169,9 @@
   <!-- CTA -->
   <section class="dark-section cta-section">
     <div class="container">
-      <h2>Ready to bring structure to your operations?</h2>
-      <p>Whether it's a project that needs a plan or a team that needs AI — let's talk.</p>
-      <a href="/contact/" class="btn btn-outline">Let's Set Up a Free Consultation</a>
+      <h2>Ready to see how your business actually runs?</h2>
+      <p>Start with a free intro call — a few questions about your operation, no pitch. If there's a fit, we take it from there.</p>
+      <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-outline">Book a free intro call</a>
     </div>
   </section>
 
@@ -162,7 +181,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <h4>Upstream Consulting</h4>
-          <p class="footer-tagline">AI integration and project delivery for brick-and-mortar operators.</p>
+          <p class="footer-tagline">I map how your business runs, systemize it, and build in the AI where it fits — one person, end to end.</p>
         </div>
         <div class="footer-col">
           <h4>Services</h4>
@@ -183,7 +202,7 @@
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a>
-          <a href="https://cal.com/upstream-consulting/60min" target="_blank" rel="noopener">Book a call</a>
+          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">Book a call</a>
           <p class="footer-meta">British Columbia, Canada</p>
         </div>
       </div>
@@ -258,5 +277,6 @@
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAll(); });
 })();
 </script>
+<script src="/site-enhance.js" defer></script>
 </body>
 </html>

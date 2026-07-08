@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/images/favicon-256.png">
+  <link rel="apple-touch-icon" href="/images/favicon-256.png">
   <title>Sample Builds | Upstream Consulting</title>
   <meta name="description" content="A gallery of working AI systems built by Upstream Consulting — accounting, email triage, document review, audits, and more. Real builds, running today.">
   <link rel="canonical" href="https://upstreamconsulting.ca/sample-builds/">
@@ -10,10 +13,13 @@
   <meta property="og:title" content="Sample Builds | Upstream Consulting">
   <meta property="og:description" content="A gallery of working AI systems built by Upstream Consulting — accounting, email triage, document review, audits, and more. Real builds, running today.">
   <meta property="og:url" content="https://upstreamconsulting.ca/sample-builds/">
-  <meta property="og:image" content="https://upstreamconsulting.ca/images/logo-invert-small.png">
+  <meta property="og:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Upstream Consulting">
-  <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="/styles.css?v=2">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
+  <link rel="stylesheet" href="/styles.css?v=4">
   <style>
     /* ============================================
        Sample Builds — page-local styles
@@ -113,6 +119,28 @@
       letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--gray-600);
+    }
+
+    /* Group intro line */
+    .build-group-intro {
+      color: var(--gray-600);
+      font-size: .98rem;
+      line-height: 1.6;
+      margin: -0.6rem 0 1.5rem;
+      max-width: 62ch;
+    }
+
+    /* Static (non-clickable) cards — "The Wider Toolkit" */
+    .build-card.is-static {
+      cursor: default;
+      background: var(--white);
+      box-shadow: none;
+    }
+    .build-card.is-static:hover,
+    .build-card.is-static:focus-visible {
+      transform: none;
+      box-shadow: none;
+      border-color: var(--gray-200);
     }
 
     /* ---- Modal ---- */
@@ -219,6 +247,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/behind-the-work/">Behind the Work</a></li>
         <li><a href="/ai-integration/" class="active">AI Integration</a></li>
+        <li><a href="/ways-to-work/">Ways to Work</a></li>
         <li><a href="/red/">Real Estate Dev</a></li>
         <li><a href="/system-development/">Systems Dev</a></li>
         <li><a href="/contact/">Contact</a></li>
@@ -230,7 +259,6 @@
     <div class="subnav-inner">
       <a href="/ai-integration/">Overview</a>
       <a href="/sample-builds/" class="active">Sample Builds</a>
-      <a href="/ways-to-work/">Ways to Work</a>
     </div>
   </nav>
 
@@ -239,7 +267,7 @@
     <div class="container">
       <div class="eyebrow">AI Integration</div>
       <h1>Sample Builds</h1>
-      <p>Real systems we've built and run ourselves. Click any card for the short version of what it does.</p>
+      <p>Real systems we've built and run ourselves. Click any of the headline builds for the short version of what it does.</p>
     </div>
   </section>
 
@@ -290,16 +318,6 @@
             <span class="build-enlarge">Click to read more</span>
           </button>
 
-          <button class="build-card" type="button"
-            data-name="Investment Research Desk"
-            data-badge="Personal build"
-            data-pitch="Nine classic investing strategy lenses, risk screens, and a live dashboard sitting over a real position ledger. It surfaces the numbers and the bear case; you make the calls.">
-            <span class="build-badge">Personal build</span>
-            <h3>Investment Research Desk</h3>
-            <p class="build-pitch-line">A research desk in your corner.</p>
-            <span class="build-enlarge">Click to read more</span>
-          </button>
-
         </div>
       </div>
 
@@ -327,11 +345,11 @@
           </button>
 
           <button class="build-card" type="button"
-            data-name="Construction Document Review"
+            data-name="Owner's Rep Review Desk"
             data-badge=""
-            data-pitch="RFIs, change orders, code compliance, lease responsibility, and spec gaps — reviewed through architect, general contractor, engineer, and owner lenses before they cost you money. Built by someone who managed these documents for a living.">
-            <h3>Construction Document Review</h3>
-            <p class="build-pitch-line">A second set of eyes on every document.</p>
+            data-pitch="RFIs, change orders, code compliance, lease responsibility, and spec gaps — read the way an owner's rep reads them, through architect, general contractor, engineer, and owner lenses, before they cost you money. Built by someone who managed these projects for a living.">
+            <h3>Owner's Rep Review Desk</h3>
+            <p class="build-pitch-line">An owner's-rep read on every document.</p>
             <span class="build-enlarge">Click to read more</span>
           </button>
 
@@ -370,73 +388,49 @@
             <span class="build-enlarge">Click to read more</span>
           </button>
 
-          <button class="build-card" type="button"
-            data-name="Proposal &amp; BizDev Desk"
-            data-badge="Internal tooling"
-            data-pitch="Prospect briefings, outreach drafts, and proposals that stay locked to a phased engagement model — so every document going out the door says the same thing about how we work.">
-            <span class="build-badge">Internal tooling</span>
-            <h3>Proposal &amp; BizDev Desk</h3>
-            <p class="build-pitch-line">Proposals that follow the playbook.</p>
-            <span class="build-enlarge">Click to read more</span>
-          </button>
-
-          <button class="build-card" type="button"
-            data-name="Marketing Desk"
-            data-badge="Internal tooling"
-            data-pitch="Content drafting with a voice gatekeeper between draft and publish, plus a lane balance tracker so the feed never drifts into one note. Everything published sounds like the founder wrote it — because it's checked against how he actually writes.">
-            <span class="build-badge">Internal tooling</span>
-            <h3>Marketing Desk</h3>
-            <p class="build-pitch-line">Your voice, kept honest.</p>
-            <span class="build-enlarge">Click to read more</span>
-          </button>
-
         </div>
       </div>
 
-      <!-- Under the Hood -->
+      <!-- The Wider Toolkit -->
       <div class="build-group">
-        <h2 class="build-group-head">Under the Hood</h2>
+        <h2 class="build-group-head">The Wider Toolkit</h2>
+        <p class="build-group-intro">The systems we run on our own operation — proof the approach holds up where we use it ourselves.</p>
         <div class="builds-grid">
 
-          <button class="build-card" type="button"
-            data-name="Platform Installer"
-            data-badge="Internal tooling"
-            data-pitch="Bootstraps a new machine and installs, syncs, and version-checks every other package in this gallery. It's how a build that works on our machines becomes a build that works on yours.">
-            <span class="build-badge">Internal tooling</span>
+          <div class="build-card is-static">
+            <h3>Proposal &amp; BizDev Desk</h3>
+            <p class="build-pitch-line">Proposals that follow the playbook.</p>
+          </div>
+
+          <div class="build-card is-static">
+            <h3>Marketing Desk</h3>
+            <p class="build-pitch-line">Your voice, kept honest.</p>
+          </div>
+
+          <div class="build-card is-static">
             <h3>Platform Installer</h3>
             <p class="build-pitch-line">One command installs the rest.</p>
-            <span class="build-enlarge">Click to read more</span>
-          </button>
+          </div>
 
-          <button class="build-card" type="button"
-            data-name="Session Guardrails"
-            data-badge="Internal tooling"
-            data-pitch="Path enforcement, credential-safety detection, and health checks that run automatically on every AI session. The unglamorous layer that keeps autonomous work from drifting.">
-            <span class="build-badge">Internal tooling</span>
+          <div class="build-card is-static">
             <h3>Session Guardrails</h3>
             <p class="build-pitch-line">Guardrails for the AI itself.</p>
-            <span class="build-enlarge">Click to read more</span>
-          </button>
+          </div>
 
-          <button class="build-card" type="button"
-            data-name="IT Approval Gate"
-            data-badge="Internal tooling"
-            data-pitch="Before any tool gets installed, it's checked against an approval register and flagged with a status tier and next step. Advisory, not blocking — the human still decides.">
-            <span class="build-badge">Internal tooling</span>
+          <div class="build-card is-static">
             <h3>IT Approval Gate</h3>
             <p class="build-pitch-line">A pre-flight check on every install.</p>
-            <span class="build-enlarge">Click to read more</span>
-          </button>
+          </div>
 
-          <button class="build-card" type="button"
-            data-name="Home Ops Dispatch"
-            data-badge="Personal build"
-            data-pitch="Voice dispatches become household tasks, calendar events, and meal plans — routed to the right person automatically. Proof the approach works anywhere there's an inbox and a to-do list.">
-            <span class="build-badge">Personal build</span>
+          <div class="build-card is-static">
+            <h3>Investment Research Desk</h3>
+            <p class="build-pitch-line">A research desk in your corner.</p>
+          </div>
+
+          <div class="build-card is-static">
             <h3>Home Ops Dispatch</h3>
             <p class="build-pitch-line">The same system, at home.</p>
-            <span class="build-enlarge">Click to read more</span>
-          </button>
+          </div>
 
         </div>
       </div>
@@ -458,7 +452,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <h4>Upstream Consulting</h4>
-          <p class="footer-tagline">AI integration and project delivery for brick-and-mortar operators.</p>
+          <p class="footer-tagline">I map how your business runs, systemize it, and build in the AI where it fits — one person, end to end.</p>
         </div>
         <div class="footer-col">
           <h4>Services</h4>
@@ -479,7 +473,7 @@
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a>
-          <a href="https://cal.com/upstream-consulting/60min" target="_blank" rel="noopener">Book a call</a>
+          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">Book a call</a>
           <p class="footer-meta">British Columbia, Canada</p>
         </div>
       </div>
@@ -590,7 +584,7 @@
       }
     });
 
-    document.querySelectorAll('.build-card').forEach(card => {
+    document.querySelectorAll('.build-card:not(.is-static)').forEach(card => {
       card.addEventListener('click', () => openModal(card));
     });
 
@@ -655,5 +649,6 @@
   align();
 })();
 </script>
+<script src="/site-enhance.js" defer></script>
 </body>
 </html>

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/images/favicon-256.png">
+  <link rel="apple-touch-icon" href="/images/favicon-256.png">
   <title>Frequently Asked Questions | Upstream Consulting</title>
   <meta name="description" content="Answers to common questions about Upstream Consulting's project delivery, AI integration timelines and cost, and systems development for owners and contractors.">
   <link rel="canonical" href="https://upstreamconsulting.ca/faqs/">
@@ -10,9 +13,12 @@
   <meta property="og:title" content="Frequently Asked Questions | Upstream Consulting">
   <meta property="og:description" content="Answers to common questions about Upstream Consulting's project delivery, AI integration timelines and cost, and systems development for owners and contractors.">
   <meta property="og:url" content="https://upstreamconsulting.ca/faqs/">
-  <meta property="og:image" content="https://upstreamconsulting.ca/images/logo-invert-small.png">
+  <meta property="og:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Upstream Consulting">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -23,7 +29,15 @@
         "name": "What types of projects do you work on?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our first priority is listening — understanding where our clients need systems that boost team productivity and reduce risk. We design scalable systems for owners and contractors, offering services like project setup, technical systems development, and support for industry tools such as Procore, PlanGrid, and Autodesk Build."
+          "text": "I work as one person, end to end: I map how your business actually runs, systemize the workflows, and build in AI where it fits — process first. That spans project setup, systems development, and the industry tools you already run such as Procore, PlanGrid, and Autodesk Build, but it is one integrated engagement, not separate services to coordinate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why one consultant for both the process and the AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most AI projects fail because the workflow underneath was never mapped. I do the mapping, the systemizing, and the AI as one job — so the AI lands on a process that actually works. You are not coordinating a process consultant, a systems integrator, and an AI vendor and hoping they agree; you are hiring the person who does all three, in order."
         }
       },
       {
@@ -85,7 +99,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="/styles.css?v=2">
+  <link rel="stylesheet" href="/styles.css?v=4">
 </head>
 <body>
 
@@ -102,6 +116,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/behind-the-work/">Behind the Work</a></li>
         <li><a href="/ai-integration/">AI Integration</a></li>
+        <li><a href="/ways-to-work/">Ways to Work</a></li>
         <li><a href="/red/">Real Estate Dev</a></li>
         <li><a href="/system-development/">Systems Dev</a></li>
         <li><a href="/contact/">Contact</a></li>
@@ -126,7 +141,14 @@
         <details>
           <summary>What types of projects do you work on?</summary>
           <div class="faq-answer">
-            <p>Our first priority is listening — understanding where our clients need systems that boost team productivity and reduce risk. We design scalable systems for owners and contractors, offering services like project setup, technical systems development, and support for industry tools such as Procore, PlanGrid, and Autodesk Build.</p>
+            <p>I work as one person, end to end: I map how your business actually runs, systemize the workflows, and build in AI where it fits — process first. That spans project setup, systems development, and the industry tools you already run (Procore, PlanGrid, Autodesk Build) — but it's one integrated engagement, not separate services to coordinate.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Why one consultant for both the process and the AI?</summary>
+          <div class="faq-answer">
+            <p>Most AI projects fail because the workflow underneath was never mapped. I do the mapping, the systemizing, and the AI as one job — so the AI lands on a process that actually works. You're not coordinating a process consultant, a systems integrator, and an AI vendor and hoping they agree; you're hiring the person who does all three, in order.</p>
           </div>
         </details>
 
@@ -198,7 +220,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <h4>Upstream Consulting</h4>
-          <p class="footer-tagline">AI integration and project delivery for brick-and-mortar operators.</p>
+          <p class="footer-tagline">I map how your business runs, systemize it, and build in the AI where it fits — one person, end to end.</p>
         </div>
         <div class="footer-col">
           <h4>Services</h4>
@@ -219,7 +241,7 @@
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a>
-          <a href="https://cal.com/upstream-consulting/60min" target="_blank" rel="noopener">Book a call</a>
+          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">Book a call</a>
           <p class="footer-meta">British Columbia, Canada</p>
         </div>
       </div>
@@ -288,5 +310,6 @@
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAll(); });
 })();
 </script>
+<script src="/site-enhance.js" defer></script>
 </body>
 </html>
