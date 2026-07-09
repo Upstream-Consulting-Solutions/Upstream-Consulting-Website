@@ -27,6 +27,35 @@
   <meta name="twitter:description" content="Person-by-person AI integration for brick and mortar operators. Structured rollouts, enterprise security, and ongoing optimization — not generic Copilot deployments.">
 
   <link rel="stylesheet" href="/styles.css?v=4">
+  <style>
+    /* AI Integration "clear the desk" hero — page-scoped */
+    .ai-desk{position:relative;min-height:100vh;overflow:hidden;isolation:isolate;cursor:crosshair;
+      background:radial-gradient(1200px 600px at 70% -10%, rgba(216,163,107,.10), transparent 60%),
+      radial-gradient(900px 500px at 0% 110%, rgba(91,122,94,.08), transparent 60%),
+      linear-gradient(180deg,#1d1d1f,#141416);}
+    .ai-desk::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.05;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+    .ai-reveal{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:150px 24px 48px;}
+    .ai-reveal .eyebrow{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#D8A36B;margin-bottom:18px;opacity:0;transform:translateY(8px);transition:opacity .8s ease,transform .8s ease;}
+    .ai-reveal h1{font-family:'Aboreto',Georgia,serif;font-size:clamp(38px,7vw,84px);line-height:1.02;letter-spacing:.01em;color:#F4EEE6;max-width:16ch;margin:0 auto;text-transform:none;opacity:.1;transition:opacity .6s ease;}
+    .ai-reveal .lead{margin-top:22px;max-width:540px;font-size:1.05rem;color:rgba(244,238,230,.86);opacity:0;transform:translateY(10px);transition:opacity .8s ease .1s,transform .8s ease .1s;}
+    .ai-reveal .cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;opacity:0;transform:translateY(10px);transition:opacity .8s ease .2s,transform .8s ease .2s;pointer-events:none;}
+    .ai-reveal.cleared .eyebrow,.ai-reveal.cleared .lead,.ai-reveal.cleared .cta{opacity:1;transform:none;}
+    .ai-reveal.cleared .cta{pointer-events:auto;}
+    .ai-reveal.cleared h1{opacity:1;}
+    .ai-clutter{position:absolute;inset:0;z-index:2;pointer-events:none;}
+    .ai-item{position:absolute;transition:transform .85s cubic-bezier(.22,.61,.36,1),opacity .8s ease;will-change:transform,opacity;filter:drop-shadow(0 16px 26px rgba(0,0,0,.42)) drop-shadow(0 3px 5px rgba(0,0,0,.3));}
+    .ai-item svg{display:block;width:100%;height:auto;}
+    .ai-item.gone{opacity:0;}
+    .ai-hint{position:absolute;left:50%;bottom:38px;transform:translateX(-50%);z-index:3;font-family:'Syne',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,238,230,.6);display:flex;align-items:center;gap:10px;transition:opacity .5s ease;}
+    .ai-hint .dot{width:7px;height:7px;border-radius:50%;background:#D8A36B;animation:aipulse 1.6s ease-in-out infinite;}
+    @keyframes aipulse{0%,100%{opacity:.4;transform:scale(1);}50%{opacity:1;transform:scale(1.5);}}
+    .ai-hint.hide{opacity:0;}
+    .ai-reveal .cta .btn-outline{color:#fff;border-color:rgba(255,255,255,.5);}
+    .ai-reveal .cta .btn-outline:hover{background:#fff;color:var(--charcoal);border-color:#fff;}
+    @media (max-width:900px){.ai-reveal{padding-top:132px;}}
+    @media (prefers-reduced-motion:reduce){.ai-item{transition:none;}.ai-reveal .eyebrow,.ai-reveal .lead,.ai-reveal .cta{transition:none;}}
+  </style>
 </head>
 <body class="has-subnav">
 
@@ -58,21 +87,34 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero-band">
-    <div class="container">
+  <!-- Hero — clear the desk -->
+  <section class="ai-desk" id="ai-desk">
+    <div class="ai-reveal" id="aiReveal">
       <div class="eyebrow">AI Integration</div>
-      <h1>Your Operations. Made Intelligent.</h1>
-      <p>Your team is already using AI. The question is whether it's structured, secure, and actually making them better at their jobs — or whether it's a collection of personal ChatGPT accounts leaking your IP into training data.</p>
-      <p>Generic rollouts fail. Most AI tools get rolled out and quietly ignored — the license gets bought, the tool gets opened once, and then the team drifts back to how they always worked.</p>
-      <p>I structure the workflow first. AI goes in second, onto a process that already works — that's the difference between adoption and a license nobody opens twice.</p>
+      <h1>Get out from under the paperwork.</h1>
+      <p class="lead">Your team is buried in the work a system should be doing. Upstream Consulting clears it — map the workflow, systemize it, and put AI where it earns its place.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="/ways-to-work/">Ways to Work</a>
+        <a class="btn btn-outline" href="/">Learn more</a>
+      </div>
+    </div>
+    <div class="ai-clutter" id="aiClutter" aria-hidden="true"></div>
+    <div class="ai-hint" id="aiHint"><span class="dot"></span> Sweep your cursor across the desk</div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section" id="main" tabindex="-1">
+    <div class="container" style="max-width:760px;">
+      <p style="font-size:1.15rem; line-height:1.75;">Your team is already using AI. The question is whether it's structured, secure, and actually making them better at their jobs — or whether it's a collection of personal ChatGPT accounts leaking your IP into training data.</p>
+      <p style="margin-top:1rem;">Generic rollouts fail. Most AI tools get rolled out and quietly ignored — the license gets bought, the tool gets opened once, and then the team drifts back to how they always worked.</p>
+      <p style="margin-top:1rem; font-weight:600; color:var(--charcoal);">I structure the workflow first. AI goes in second, onto a process that already works — that's the difference between adoption and a license nobody opens twice.</p>
     </div>
   </section>
 
   <div class="section-divider"></div>
 
   <!-- Three Problems -->
-  <section class="section" id="main" tabindex="-1">
+  <section class="section">
     <div class="container">
       <h2>Three Problems Nobody Wants to Talk About</h2>
       <div class="cards-grid-3" style="margin-top: 2.5rem;">
@@ -393,5 +435,6 @@
 })();
 </script>
 <script src="/site-enhance.js" defer></script>
+<script src="/ai-hero.js" defer></script>
 </body>
 </html>
