@@ -62,221 +62,67 @@
   </script>
 
   <link rel="stylesheet" href="/styles.css?v=4">
+  <style>
+    /* Splash landing "clear the desk" hero — page-scoped */
+    .ai-desk{position:relative;min-height:100vh;overflow:hidden;isolation:isolate;cursor:crosshair;
+      background:radial-gradient(1200px 600px at 70% -10%, rgba(216,163,107,.10), transparent 60%),
+      radial-gradient(900px 500px at 0% 110%, rgba(91,122,94,.08), transparent 60%),
+      linear-gradient(180deg,#1d1d1f,#141416);}
+    .ai-desk::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.05;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+    .ai-reveal{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 48px;}
+    .ai-reveal .eyebrow{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#D8A36B;margin-bottom:18px;opacity:0;transform:translateY(8px);transition:opacity .8s ease,transform .8s ease;}
+    .ai-reveal h1{font-family:'Aboreto',Georgia,serif;font-size:clamp(38px,7vw,84px);line-height:1.02;letter-spacing:.01em;color:#F4EEE6;max-width:16ch;margin:0 auto;text-transform:none;opacity:.1;transition:opacity .6s ease;}
+    .ai-reveal .lead{margin-top:22px;max-width:560px;font-size:1.05rem;color:rgba(244,238,230,.86);opacity:0;transform:translateY(10px);transition:opacity .8s ease .1s,transform .8s ease .1s;}
+    .ai-reveal .cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;opacity:0;transform:translateY(10px);transition:opacity .8s ease .2s,transform .8s ease .2s;pointer-events:none;}
+    .ai-reveal.cleared .eyebrow,.ai-reveal.cleared .lead,.ai-reveal.cleared .cta{opacity:1;transform:none;}
+    .ai-reveal.cleared .cta{pointer-events:auto;}
+    .ai-reveal.cleared h1{opacity:1;}
+    .ai-clutter{position:absolute;inset:0;z-index:2;pointer-events:none;}
+    .ai-item{position:absolute;transition:transform .85s cubic-bezier(.22,.61,.36,1),opacity .8s ease;will-change:transform,opacity;filter:drop-shadow(0 16px 26px rgba(0,0,0,.42)) drop-shadow(0 3px 5px rgba(0,0,0,.3));}
+    .ai-item svg{display:block;width:100%;height:auto;}
+    .ai-item.gone{opacity:0;}
+    .ai-hint{position:absolute;left:50%;bottom:38px;transform:translateX(-50%);z-index:3;font-family:'Syne',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,238,230,.6);display:flex;align-items:center;gap:10px;transition:opacity .5s ease;}
+    .ai-hint .dot{width:7px;height:7px;border-radius:50%;background:#D8A36B;animation:aipulse 1.6s ease-in-out infinite;}
+    @keyframes aipulse{0%,100%{opacity:.4;transform:scale(1);}50%{opacity:1;transform:scale(1.5);}}
+    .ai-hint.hide{opacity:0;}
+    .ai-reveal .cta .btn-outline{color:#fff;border-color:rgba(255,255,255,.5);}
+    .ai-reveal .cta .btn-outline:hover{background:#fff;color:var(--charcoal);border-color:#fff;}
+
+    /* Splash logo — minimal masthead, no nav menu */
+    .splash-logo{position:fixed;top:26px;left:28px;z-index:10;display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .splash-logo img{height:52px;width:auto;filter:invert(1);}
+    .splash-logo span{font-family:'Aboreto',serif;font-weight:400;font-size:1.4rem;line-height:1.14;text-transform:uppercase;letter-spacing:.12em;color:#F4EEE6;white-space:nowrap;}
+    .splash-logo:hover span{color:#D8A36B;}
+    @media (max-width:900px){.ai-reveal{padding-top:120px;}.splash-logo{top:18px;left:18px;}.splash-logo img{height:42px;}.splash-logo span{font-size:1.15rem;}}
+    @media (prefers-reduced-motion:reduce){.ai-item{transition:none;}.ai-reveal .eyebrow,.ai-reveal .lead,.ai-reveal .cta{transition:none;}}
+  </style>
 </head>
 <body>
 
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo"><img src="/images/logo-symbol.png" alt="Upstream Consulting"><span>Upstream<br>Consulting</span></a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="/">Home</a></li>
-        <li><a href="/behind-the-work/">Behind the Work</a></li>
-        <li><a href="/ai-integration/">AI Integration</a></li>
-        <li><a href="/ways-to-work/">Ways to Work</a></li>
-        <li><a href="/red/">Real Estate Dev</a></li>
-        <li><a href="/system-development/">Systems Dev</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <!-- Splash masthead — logo only, no nav (deliberate: maximize first impression) -->
+  <a href="/" class="splash-logo" aria-label="Upstream Consulting — home">
+    <img src="/images/logo-symbol.png" alt="Upstream Consulting">
+    <span>Upstream<br>Consulting</span>
+  </a>
 
-  <!-- Hero -->
-  <section class="hero hero--photo">
-    <div class="container">
-      <h1>Every business runs on systems. Most were never written down.</h1>
-      <p>I map how yours actually work, systemize them, and build in the AI where it earns its place — process first, one person end to end. Fifteen years of it came from opening flagships for Aritzia, JOEY, and Gateway Casinos.</p>
-      <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary">Book a free intro call</a>
-      <a href="/ai-integration/" class="btn btn-outline" style="margin-left:12px;">See how it works</a>
+  <!-- Hero — clear the desk -->
+  <section class="ai-desk" id="ai-desk">
+    <div class="ai-reveal" id="aiReveal">
+      <a id="main" tabindex="-1"></a>
+      <div class="eyebrow">Operations + AI Consulting</div>
+      <h1>Get out from under the paperwork.</h1>
+      <p class="lead">Every business runs on systems — most were never written down. Upstream maps how yours actually run, systemizes them, and builds in the AI where it earns its place. Process first, based in BC.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="/home/">Learn more</a>
+      </div>
     </div>
+    <div class="ai-clutter" id="aiClutter" aria-hidden="true"></div>
+    <div class="ai-hint" id="aiHint"><span class="dot"></span> Sweep your cursor across the desk</div>
   </section>
 
-  <div class="section-divider"></div>
-
-  <!-- Services -->
-  <section class="alt-bg" id="main" tabindex="-1">
-    <div class="container">
-      <div style="text-align:center; margin-bottom:3rem;">
-        <h2>One Engagement, Four Layers</h2>
-        <p class="section-sub">Not four services to shop between — the same job, done in the right order.</p>
-      </div>
-
-      <!-- Service Block 1 — Project Strategy -->
-      <div class="service-block" style="margin-bottom:28px;">
-        <div class="service-block-image" style="background-image:url('/images/service-map.jpg');" role="img" aria-label="Overhead view of a team mapping a project on paper"></div>
-        <div class="service-block-content">
-          <h3>1 &middot; Map the Operation</h3>
-          <p class="card-italic">Before anything gets built.</p>
-          <p>I map how the work actually moves — who touches what, where it stalls, and the steps that only live in someone's head. Fifteen years as an owner's rep reading buildings, budgets, and crews is what tuned that eye.</p>
-          <ul>
-            <li>Scope, roles, timelines, and decision-making frameworks</li>
-            <li>Stakeholder coordination and accountability structures</li>
-            <li>Risk assessment and mitigation planning</li>
-          </ul>
-          <p style="margin-top:1rem;"><a href="/red/">Where the read came from &rarr;</a></p>
-        </div>
-      </div>
-
-      <!-- Service Block 2 — Technical Development -->
-      <div class="service-block" style="margin-bottom:28px;">
-        <div class="service-block-image" style="background-image:url('/images/service-systemize.jpg');" role="img" aria-label="Team reviewing plans and systems together"></div>
-        <div class="service-block-content">
-          <h3>2 &middot; Systemize the Workflows</h3>
-          <p class="card-italic">Turn the map into something your team can run.</p>
-          <p>The platforms, the SOPs, the backbone — built so the operation runs without the founder in the room. I've taken clients from a single spreadsheet to a full product ecosystem, and configured the tools they run on: SharePoint, Procore, PlanGrid, ACC Build, Microsoft 365.</p>
-          <p style="margin-top:1rem;"><a href="/system-development/">Systems I've built &rarr;</a></p>
-        </div>
-      </div>
-
-      <!-- Service Block 3 — AI Integration -->
-      <div class="service-block" style="margin-bottom:28px;">
-        <div class="service-block-image" style="background-image:url('/images/service-ai.jpg');" role="img" aria-label="Working session with laptops and documents"></div>
-        <div class="service-block-content">
-          <h3>3 &middot; Wire in the AI</h3>
-          <p class="card-italic">AI lands on a process that already works.</p>
-          <p>Once the workflow is structured, AI goes in second — person by person, workflow by workflow, with the security and governance layer in place from day one. That's the difference between adoption and a license nobody opens twice.</p>
-          <ul>
-            <li>Executive and workforce intake mapping</li>
-            <li>Internal AI champion selection and training</li>
-            <li>Workflow automation and integration</li>
-            <li>Monthly optimization and cost tracking</li>
-          </ul>
-          <p style="margin-top:1rem;"><a href="/ai-integration/">How the rollout works &rarr;</a></p>
-        </div>
-      </div>
-
-      <!-- Service Block 4 — Process & Enablement -->
-      <div class="service-block">
-        <div class="service-block-image" style="background-image:url('/images/hero-home.jpg');" role="img" aria-label="Team collaborating over a shared workspace"></div>
-        <div class="service-block-content">
-          <h3>4 &middot; Hand Your Team the Keys</h3>
-          <p class="card-italic">Built for handoff.</p>
-          <p>You run it after I leave — the systems, the tools, the documentation, the receipts. No dependency, no black box. See the kind of thing that ships.</p>
-          <p style="margin-top:1rem;"><a href="/sample-builds/">See sample builds &rarr;</a></p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- CTA -->
-  <section class="dark-section cta-section">
-    <div class="container">
-      <h2>Ready to see how your business actually runs?</h2>
-      <p>Start with a free intro call — a few questions about your operation, no pitch. If there's a fit, we take it from there.</p>
-      <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-outline">Book a free intro call</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>Upstream Consulting</h4>
-          <p class="footer-tagline">I map how your business runs, systemize it, and build in the AI where it fits — one person, end to end.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <a href="/ai-integration/">AI Integration</a>
-          <a href="/sample-builds/">Sample Builds</a>
-          <a href="/ways-to-work/">Ways to Work</a>
-          <a href="/red/">Real Estate Dev</a>
-          <a href="/system-development/">Systems Dev</a>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <a href="/">Home</a>
-          <a href="/behind-the-work/">Behind the Work</a>
-          <a href="/contact/">Contact</a>
-          <a href="/faqs/">FAQ</a>
-          <a href="/legal/">Legal</a>
-        </div>
-        <div class="footer-col">
-          <h4>Get in Touch</h4>
-          <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a>
-          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">Book a call</a>
-          <p class="footer-meta">British Columbia, Canada</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        &copy; 2026 Upstream Consulting Solutions Inc. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <!-- Back to Top -->
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
-
-  <!-- Minimal JS: hamburger + back-to-top + nav shadow -->
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-      const open = hamburger.classList.toggle('open');
-      navLinks.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
-    // Close menu on link click (mobile)
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    // Back to top
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-  </script>
-
-<script>
-(function(){
-  var norm = location.pathname.replace(/index\.html$/,'');
-  if (norm === '') norm = '/';
-  document.querySelectorAll('#navLinks a[href]').forEach(function(a){
-    if (a.getAttribute('href') === norm) {
-      a.classList.add('active');
-      var dd = a.closest('.dropdown');
-      if (dd) { var p = dd.closest('.has-dropdown'); if (p) { var pa = p.querySelector(':scope > a'); if (pa) pa.classList.add('active'); } }
-    }
-  });
-})();
-</script>
-<script>
-(function(){
-  function closeAll(){ document.querySelectorAll('.has-dropdown.open').forEach(function(li){ li.classList.remove('open'); var a=li.querySelector('a'); if(a) a.setAttribute('aria-expanded','false'); }); }
-  document.querySelectorAll('.has-dropdown > a').forEach(function(t){
-    t.addEventListener('click', function(e){
-      if (window.innerWidth > 900) {
-        e.preventDefault();
-        var li = t.parentElement;
-        var willOpen = !li.classList.contains('open');
-        closeAll();
-        if (willOpen) { li.classList.add('open'); t.setAttribute('aria-expanded','true'); }
-      }
-    });
-  });
-  document.addEventListener('click', function(e){ if (!e.target.closest('.has-dropdown')) closeAll(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAll(); });
-})();
-</script>
-<script src="/site-enhance.js" defer></script>
+  <script src="/ai-hero.js" defer></script>
 </body>
 </html>
