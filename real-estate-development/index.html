@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/images/favicon-256.png">
+  <link rel="apple-touch-icon" href="/images/favicon-256.png">
+  <title>Real Estate Development | Upstream Consulting</title>
+  <meta name="description" content="For owners and developers: the whole development lifecycle mapped, 13 phases and 74 processes from market strategy to post opening. Find the opportunity that's right for you.">
+  <link rel="canonical" href="https://upstreamconsulting.ca/real-estate-development/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Real Estate Development | Upstream Consulting">
+  <meta property="og:description" content="For owners and developers: the whole development lifecycle mapped, 13 phases and 74 processes from market strategy to post opening. Find the opportunity that's right for you.">
+  <meta property="og:url" content="https://upstreamconsulting.ca/real-estate-development/">
+  <meta property="og:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Upstream Consulting">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
+  <meta name="twitter:title" content="Real Estate Development | Upstream Consulting">
+  <meta name="twitter:description" content="For owners and developers: the whole development lifecycle mapped, 13 phases and 74 processes from market strategy to post opening. Find the opportunity that's right for you.">
+
+  <!-- Service JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Real Estate Development",
+    "serviceType": "Real estate development consulting",
+    "url": "https://upstreamconsulting.ca/real-estate-development/",
+    "description": "For owners and developers: the whole development lifecycle mapped, 13 phases and 74 processes from market strategy to post opening. Find the opportunity that's right for you.",
+    "areaServed": "British Columbia, Canada",
+    "audience": { "@type": "BusinessAudience", "audienceType": "Owners and developers" },
+    "provider": {
+      "@type": "Organization",
+      "name": "Upstream Consulting",
+      "url": "https://upstreamconsulting.ca"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="/styles.css?v=5">
+  <link rel="stylesheet" href="/motion.css?v=1">
+
+  <style>
+  /* Font tokens: the same families /styles.css declares, named so page rules can use var(--font-*) */
+  :root {
+    --font-heading: 'Aboreto', Georgia, serif;
+    --font-body:    'Gotu', Georgia, serif;
+    --font-button:  'Syne', Arial, sans-serif;
+  }
+
+  @media print {
+    .nav, .back-to-top, .hamburger { display: none; }
+    .dark-section, .site-footer, .hero--photo, .phase-num {
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .phase, .rail-col, .role, .letter { break-inside: avoid; }
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     ARTIFACT-LOCAL OVERRIDES — page layout only.
+     Colours come from /styles.css tokens via var(--*).
+     ══════════════════════════════════════════════════════════ */
+
+  /* Screen-reader-only text */
+  .vh {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .narrow { max-width: 760px; }
+  .eyebrow-label {
+    font-family: var(--font-button);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .7rem;
+  }
+  .dark-section .eyebrow-label { color: var(--gold); }
+
+  /* ── Hero ── */
+  .red-hero {
+    background-image: linear-gradient(rgba(29,29,31,.68) 0%, rgba(29,29,31,.80) 100%), url('/images/render-soho.jpg');
+  }
+  .red-hero .hero-eyebrow {
+    font-family: var(--font-button);
+    font-size: .74rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 auto .9rem;
+  }
+  .red-hero h1 { max-width: 880px; }
+  .red-hero .hero-lede { max-width: 660px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+  /* ── Intro ── */
+  .red-intro .lede { font-size: 1.15rem; line-height: 1.75; }
+  .red-intro .strong-line { font-weight: 600; color: var(--charcoal); }
+
+  /* ── Who it's for ── */
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 2.25rem;
+  }
+  .who-col { border-top: 2px solid var(--gold); padding-top: 1.1rem; }
+  .who-col h3 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
+  .who-col p { font-size: 1rem; color: var(--gray-600); }
+
+  /* ── Lifecycle spine ── */
+  .lifecycle .section-sub { max-width: 760px; margin-bottom: 1.5rem; }
+  .spine { list-style: none; position: relative; }
+  .spine::before {
+    content: '';
+    position: absolute;
+    left: 21px; top: 22px; bottom: 22px;
+    width: 2px;
+    background: var(--gray-200);
+  }
+  .phase {
+    position: relative;
+    display: grid;
+    grid-template-columns: 44px 240px 1fr;
+    gap: 8px 24px;
+    align-items: start;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .phase:last-child { border-bottom: 0; }
+  .phase-num {
+    position: relative;
+    z-index: 1;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-button);
+    font-weight: 700;
+    font-size: .85rem;
+    color: var(--charcoal);
+  }
+  .phase-head { padding-top: 7px; }
+  .phase-name {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    line-height: 1.3;
+    margin: 0 0 .15rem;
+  }
+  .phase-count { font-size: .85rem; color: var(--gray-600); line-height: 1.4; }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding-top: 7px; }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 12px;
+    border: 1px solid var(--gray-200);
+    border-radius: 100px;
+    background: var(--white);
+    font-size: .84rem;
+    line-height: 1.45;
+    color: var(--charcoal);
+  }
+
+  .rail { margin-top: 3.25rem; }
+  .rail-title { font-size: 1.15rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .3rem; }
+  .rail-sub { color: var(--gray-600); font-size: 1rem; margin-bottom: 1.5rem; }
+  .rail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .rail-col {
+    background: var(--off-white);
+    border: 1px solid var(--gray-200);
+    border-top: 3px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 20px 20px 22px;
+  }
+  .rail-name { font-size: 1rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .1rem; }
+  .rail-col .chips { padding-top: 12px; }
+  .life-note {
+    margin-top: 2.5rem;
+    max-width: 760px;
+    font-size: 1.05rem;
+  }
+
+  /* ── Proof ── */
+  .roles {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 2rem;
+  }
+  .role {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .role img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+  .role-tile {
+    aspect-ratio: 4 / 3;
+    background: var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-600);
+    font-family: var(--font-button);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .role-body { padding: 16px 18px 18px; }
+  .role h3 { font-size: .98rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .2rem; }
+  .role p { font-size: .92rem; font-style: italic; color: var(--gray-600); line-height: 1.5; }
+
+  .letters-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 2.25rem;
+  }
+  .letter { margin: 0; border-left: 3px solid var(--gold); padding-left: 24px; }
+  .dark-section .letter blockquote p { font-size: 1.08rem; font-style: italic; line-height: 1.8; color: rgba(255,255,255,.88); }
+  .letter figcaption { margin-top: 1rem; }
+  .letter-src { display: block; font-size: .9rem; color: var(--gold); font-weight: 600; }
+  .letter-scope { display: block; font-size: .85rem; color: rgba(255,255,255,.68); }
+
+  /* ── Closing CTA ── */
+  .red-cta .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .red-cta .cta-email { margin: 1.75rem auto 0; }
+  .btn-outline.btn-outline--dark { color: var(--charcoal); border-color: var(--charcoal); }
+  .btn-outline.btn-outline--dark:hover { background: var(--charcoal); color: var(--white); }
+
+  @media (max-width: 1024px) {
+    .roles { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .who-grid { grid-template-columns: 1fr; gap: 24px; }
+    .run-item { grid-template-columns: 1fr; gap: 4px; }
+    .phase { grid-template-columns: 44px 1fr; }
+    .chips { grid-column: 2; padding-top: 0; }
+    .rail-grid { grid-template-columns: 1fr; }
+    .rail-col .chips { padding-top: 10px; }
+    .letters-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+  @media (max-width: 480px) {
+    .spine::before { left: 17px; top: 18px; bottom: 18px; }
+    .phase { grid-template-columns: 36px 1fr; gap: 6px 14px; }
+    .phase-num { width: 36px; height: 36px; font-size: .78rem; }
+    .phase-head { padding-top: 4px; }
+    .chip { font-size: .8rem; padding: 3px 10px; }
+    .roles { gap: 14px; }
+    .role-body { padding: 12px 12px 14px; }
+    .role h3 { font-size: .85rem; }
+    .role p { font-size: .82rem; }
+    .letter { padding-left: 18px; }
+  }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/home/" class="nav-logo"><img src="/images/logo-symbol.png" alt="Upstream Consulting"><span>Upstream<br>Consulting</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/ai-integration/">AI for Your Team</a></li>
+        <li><a href="/ways-to-work/">Ways to Work</a></li>
+        <li><a href="/behind-the-work/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li class="nav-signin-item"><a href="https://hub.upstreamconsulting.ca" class="nav-signin">Client sign-in</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero--photo red-hero">
+    <div class="container">
+      <p class="hero-eyebrow">Real Estate Development</p>
+      <h1>The Whole Development Lifecycle, Mapped</h1>
+      <p class="hero-lede">Owners and developers carry a project from the first market study to the months after opening. We've laid out that whole run: 13 phases, 74 processes. Find the opportunity that's right for you.</p>
+      <div class="hero-actions">
+        <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary">Book a free intro call</a>
+        <a href="#lifecycle" class="btn btn-outline">See the lifecycle</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="red-intro" id="main" tabindex="-1">
+    <div class="container narrow">
+      <p class="lede">An RFI. A change order. A lease clause. A spec section that doesn't match the drawings. Each one needs a careful read against the contract, and each one lands on someone who's already stretched.</p>
+      <p>We build reviews that do that careful read with your team. Each one walks your coordinator through the call a senior project manager would make, one question at a time.</p>
+      <p class="strong-line">A person decides. The review never does.</p>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="alt-bg who" aria-labelledby="who-title">
+    <div class="container">
+      <h2 id="who-title">For Owners and Developers</h2>
+      <p class="section-sub">The people who carry a project from the first study to the keys, and the teams they hire to run it.</p>
+      <div class="who-grid">
+        <div class="who-col">
+          <h3>Developers</h3>
+          <p>Taking a site from feasibility through approvals, design, construction and handover, with a paper trail that starts on day one.</p>
+        </div>
+        <div class="who-col">
+          <h3>Owners</h3>
+          <p>Opening locations of your own, one or many, and living with the lease, the warranties and the building after the contractors leave.</p>
+        </div>
+        <div class="who-col">
+          <h3>Their Project Teams</h3>
+          <p>Owner's reps, project managers and coordinators: the people who do the reading, the tracking and the answering.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- The lifecycle -->
+  <section class="lifecycle" id="lifecycle" aria-labelledby="life-title">
+    <div class="container">
+      <h2 id="life-title">Find the Opportunity That's Right for You</h2>
+      <p class="section-sub">The full development lifecycle: 13 phases and 74 processes, from the first market study to the months after opening.</p>
+
+      <ol class="spine">
+      <li class="phase">
+        <span class="phase-num" aria-hidden="true">01</span>
+        <div class="phase-head">
+          <h3 class="phase-name">Market Strategy</h3>
+          <p class="phase-count">7 processes</p>
+        </div>
+        <ul class="chips" aria-label="Market Strategy processes">
+          <li class="chip">Market Feasibility Review</li>
+          <li class="chip">Demand Analysis</li>
+          <li class="chip">Market Demographic Analysis</li>
+          <li class="chip">Competitive Landscape Review</li>
+          <li class="chip">ROI Modeling</li>
+          <li class="chip">Capital Planning Scenario</li>
+          <li class="chip">Investment Risk Screening</li>
+        </ul>
+      </li>
+      <li class="phase">
+        <span class="phase-num" aria-hidden="true">02</span>
+        <div class="phase-head">
+          <h3 class="phase-name">Site Selection</h3>
+          <p class="phase-count">8 processes</p>
+        </div>
+        <ul class="chips" aria-label="Site Selection processes">
+          <li class="chip">Site Identification</li>
+          <li class="chip">Site Intake Structuring</li>
+          <li class="chip">Site Feasibility Review</li>
+          <li class="chip">Landlord Evaluation</li>
+          <li class="chip">Landlord Risk Review</li>
+          <li class="chip">Lease Responsibility Review</li>
+          <li class="chip">Lease Compliance Review</li>
+          <li class="chip">Lease Documentation Archive</li>
+        </ul>
+      </li>
+      <li class="phase">
+        <span class="phase-num" aria-hidden="true">03</span>
+        <div class="phase-head">
+          <h3 class="phase-name">Entitlement / Permitting</h3>
+          <p class="phase-count">5 processes</p>
+        </div>
+        <ul class="chips" aria-label="Entitlement / Permitting processes">
+          <li class="chip">Zoning Compliance Check</li>
+          <li class="chip">Code Compliance Review</li>
+          <li class="chip">Permit Strategy Development</li>
+          <li class="chip">Permit Submission Coordination</li>
+          <li class="chip">Landlord Design Compliance</li>
+        </ul>
+      </li>
+      <li class="phase">
+        <span class="phase-num" aria-hidden="true">04</span>
+        <div class="phase-head">
+          <h3 class="phase-name">Design</h3>
+          <p class="phase-count">7 processes</p>
+        </div>
+        <ul class="chips" aria-label="Design processes">
+          <li class="chip">Consultant Selection</li>
+          <li class="chip">Design Kickoff Coordination</li>
+          <li class="chip">Design Guideline Review</li>
+          <li class="chip">Design Coordination Review</li>
+          <li class="chip">Drawing Development Review</li>
+          <li class="chip">Constructability Review</li>
+          <li class="chip">Value Engineering Review</li>
+        </ul>
+      </li>
+      <li class="phase">
+        <span class="phase-num" aria-hidden="true">05</span>
+        <div class="phase-head">
+          <h3 class="phase-name">Preconstruction</h3>
+          <p class="phase-count">5 processes</p>
+        </div>
+        <ul class="chips" aria-label="Preconstruction processes">
+          <li class="chip">Preliminary Cost Model</li>
+          <li class="chip">Construction Budget Development</li>
+          <li class="chip">Schedule Development</li>
+          <li class="chip">Procurement Strategy Development</li>
+          <li class="chip">Bid Package Preparation</li>
+        </ul>
+      </li>
+      <li class="phase">
+        <span class="phase-num" aria-hidden="true">06</span>
+        <div class="phase-head">
+          <h3 class="phase-name">Procurement</h3>
+          <p class="phase-count">6 processes</p>
+        </div>
+        <ul class="chips" aria-label="Procurement processes">
+          <li class="chip">Vendor Qualification</li>
+          <li class="chip">RFP Management</li>
+          <li class="chip">Bid Evaluation</li>
+          <li class="chip">Vendor Contract Review</li>
+          <li class="chip">Procurement Tracking</li>
+          <li class="chip">Vendor Performance Evaluation</li>
+        </ul>
+      </li>
+      <li class="phase">
+        <span class="phase-num" aria-hidden="true">07</span>
+        <div class="phase-head">
+          <h3 class="phase-name">Construction</h3>
+          <p class="phase-count">8 processes</p>
+        </div>
+        <ul class="chips" aria-label="Construction processes">
+          <li class="chip">RFI Review</li>
+          <li class="chip">Site Issue Documentation</li>
+          <li class="chip">Change Order Review</li>
+          <li class="chip">Schedule Delay Review</li>
+          <li class="chip">Construction Progress Monitoring</li>
+          <li class="chip">Cost Impact Analysis</li>
+          <li class="chip">Safety Issue Review</li>
+          <li class="chip">Spec Gap Review</li>
+        </ul>
+      </li>
+      <li class="phase">
+        <span class="phase-num" aria-hidden="true">08</span>
+        <div class="phase-head">
+          <h3 class="phase-name">Project Closeout</h3>
+          <p class="phase-count">5 processes</p>
+        </div>
+        <ul class="chips" aria-label="Project Closeout processes">
+          <li class="chip">Substantial Completion Verification</li>
+          <li class="chip">Punch List Management</li>
+          <li class="chip">Project Closeout Documentation</li>
+          <li class="chip">Warranty Documentation Review</li>
+          <li class="chip">Final Cost Reconciliation</li>
+        </ul>
+      </li>
+      <li class="phase">
+        <span class="phase-num" aria-hidden="true">09</span>
+        <div class="phase-head">
+          <h3 class="phase-name">Operations Handover</h3>
+          <p class="phase-count">4 processes</p>
+        </div>
+        <ul class="chips" aria-label="Operations Handover processes">
+          <li class="chip">Operations Readiness Planning</li>
+          <li class="chip">Operations Training Coordination</li>
+          <li class="chip">Operational Documentation Review</li>
+          <li class="chip">Handover Acceptance</li>
+        </ul>
+      </li>
+      <li class="phase">
+        <span class="phase-num" aria-hidden="true">10</span>
+        <div class="phase-head">
+          <h3 class="phase-name">Post Opening</h3>
+          <p class="phase-count">3 processes</p>
+        </div>
+        <ul class="chips" aria-label="Post Opening processes">
+          <li class="chip">Store Performance Monitoring</li>
+          <li class="chip">Operations Feedback Review</li>
+          <li class="chip">Post Opening Support Coordination</li>
+        </ul>
+      </li>
+      </ol>
+
+      <div class="rail">
+        <h3 class="rail-title">Alongside Every Phase</h3>
+        <p class="rail-sub">The money, the paperwork and the decisions that run the whole length of the project.</p>
+        <div class="rail-grid">
+      <div class="rail-col">
+        <h4 class="rail-name">Finance</h4>
+        <p class="phase-count">5 processes</p>
+        <ul class="chips" aria-label="Finance processes">
+          <li class="chip">Budget Oversight</li>
+          <li class="chip">Cost Tracking Review</li>
+          <li class="chip">Financial Reporting Review</li>
+          <li class="chip">Funding Approval Preparation</li>
+          <li class="chip">Financial Compliance Review</li>
+        </ul>
+      </div>
+      <div class="rail-col">
+        <h4 class="rail-name">Legal / Admin</h4>
+        <p class="phase-count">5 processes</p>
+        <ul class="chips" aria-label="Legal / Admin processes">
+          <li class="chip">Contract Administration Review</li>
+          <li class="chip">Insurance Coordination Review</li>
+          <li class="chip">Corporate Record Management</li>
+          <li class="chip">Lease Administration</li>
+          <li class="chip">Compliance Management Review</li>
+        </ul>
+      </div>
+      <div class="rail-col">
+        <h4 class="rail-name">Executive</h4>
+        <p class="phase-count">6 processes</p>
+        <ul class="chips" aria-label="Executive processes">
+          <li class="chip">Capital Approval Preparation</li>
+          <li class="chip">Vendor Strategy Review</li>
+          <li class="chip">Board Presentation Preparation</li>
+          <li class="chip">Strategic Direction Review</li>
+          <li class="chip">Executive Reporting Preparation</li>
+          <li class="chip">Leadership Oversight Review</li>
+        </ul>
+      </div>
+        </div>
+      </div>
+
+      <p class="life-note">Pick the one that costs your team the most time, and we start there. See how a review looks in the <a href="/work/#hub">project hub</a>.</p>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="alt-bg proof" aria-labelledby="proof-title">
+    <div class="container">
+      <h2 id="proof-title">Fifteen Years on the Owner's Side</h2>
+      <p class="section-sub">Upstream's founder spent 15 years as an owner's rep on retail and hospitality projects, coordinating architects, engineers, contractors, landlords and ownership groups.</p>
+      <ul class="roles">
+        <li class="role">
+          <img src="/images/render-chicago.jpg" alt="Rendering of an Aritzia store interior with timber beams and clothing displays" width="1024" height="675" loading="lazy">
+          <div class="role-body">
+            <h3>Aritzia</h3>
+            <p>Architectural Project Manager</p>
+          </div>
+        </li>
+        <li class="role">
+          <img src="/images/render-shipyards.jpg" alt="Rendering of a JOEY restaurant interior with a fire feature and lounge seating" width="1024" height="595" loading="lazy">
+          <div class="role-body">
+            <h3>JOEY</h3>
+            <p>Project Manager</p>
+          </div>
+        </li>
+        <li class="role">
+          <div class="role-tile" aria-hidden="true">Photo to come</div>
+          <div class="role-body">
+            <h3>Noodlebox</h3>
+            <p>Project Manager</p>
+          </div>
+        </li>
+        <li class="role">
+          <img src="/images/render-mb.jpg" alt="Interior of a Meat &amp; Bread restaurant with the service counter and open kitchen" width="920" height="675" loading="lazy">
+          <div class="role-body">
+            <h3>Meat &amp; Bread</h3>
+            <p>Project Manager</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Letters -->
+  <section class="dark-section letters" aria-labelledby="letters-title">
+    <div class="container">
+      <h2 id="letters-title">What They Said</h2>
+      <div class="letters-grid">
+        <figure class="letter">
+          <blockquote>
+            <p>"The successful back-to-back opening of SoHo, Michigan Ave were nothing short of extraordinary. Your hard work, collaboration and dedication to world-class results is what made this massive milestone possible. And we're deeply grateful."</p>
+          </blockquote>
+          <figcaption>
+            <span class="letter-src">Letter of Recognition, CEO &amp; EVP, Aritzia</span>
+            <span class="letter-scope">Scope: Architectural Project Manager</span>
+          </figcaption>
+        </figure>
+        <figure class="letter">
+          <blockquote>
+            <p>"The strategic leadership and technical expertise were instrumental in the successful delivery of Aritzia projects. His ability to streamline complex workflows, align cross-functional teams, and drive scalable systems had a lasting impact across our Architecture group."</p>
+          </blockquote>
+          <figcaption>
+            <span class="letter-src">Letter of Reference, VP Architecture, Aritzia</span>
+            <span class="letter-scope">Scope: Sr. Manager Technical Development</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section red-cta" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 id="cta-title">Start With One Review</h2>
+      <p>Book a free intro call. Bring the project that's taking the most of your week, and we'll look at it together.</p>
+      <div class="cta-actions">
+        <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary">Book a free intro call</a>
+        <a href="/ways-to-work/" class="btn btn-outline btn-outline--dark">See ways to work</a>
+      </div>
+      <p class="cta-email"><a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h2 class="footer-h">Upstream Consulting</h2>
+          <p class="footer-tagline">We build the tools that quote, track and run the job, and set Claude up properly for your team.</p>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-h">Services</h2>
+          <a href="/work/">Work</a>
+          <a href="/ai-integration/">AI for Your Team</a>
+          <a href="/ways-to-work/">Ways to Work</a>
+          <a href="/real-estate-development/" aria-current="page">Real Estate Development</a>
+          <a href="/sample-builds/">Sample Builds</a>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-h">Company</h2>
+          <a href="/home/">Home</a>
+          <a href="/behind-the-work/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/faqs/">FAQ</a>
+          <a href="/legal/">Legal</a>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-h">Get in Touch</h2>
+          <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a>
+          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">Book a free intro call</a>
+          <p class="footer-meta">British Columbia, Canada</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Upstream Consulting Solutions Inc. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  <script>
+  (function(){
+    var norm = location.pathname.replace(/index\.html$/,'');
+    if (norm === '') norm = '/';
+    document.querySelectorAll('#navLinks a[href]').forEach(function(a){
+      if (a.getAttribute('href') === norm) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); }
+    });
+  })();
+  </script>
+  <script src="/site-enhance.js" defer></script>
+</body>
+</html>

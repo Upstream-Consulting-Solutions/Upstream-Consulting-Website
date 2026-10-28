@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    /* Seen the desk already this browser session? Go straight to the home page. Add ?replay to watch it again. */
+    (function(){
+      try {
+        if (sessionStorage.getItem('upstreamDeskSeen') && !/[?&]replay\b/.test(location.search)) location.replace('/home/');
+      } catch (e) {}
+    })();
+  </script>
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="256x256" href="/images/favicon-256.png">
   <link rel="apple-touch-icon" href="/images/favicon-256.png">
   <title>AI &amp; Operations Consultant in BC | Upstream Consulting</title>
-  <meta name="description" content="Every business runs on systems — most were never written down. Upstream maps how yours run, systemizes them, and builds in the AI where it fits. Process first. Based in BC, Canada.">
+  <meta name="description" content="Every business runs on systems. Most were never written down. Upstream maps how yours run, systemizes them, and builds in the AI where it fits. Process first. Based in BC, Canada.">
   <link rel="canonical" href="https://upstreamconsulting.ca/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="AI &amp; Operations Consultant in BC | Upstream Consulting">
-  <meta property="og:description" content="Every business runs on systems — most were never written down. Upstream maps how yours run, systemizes them, and builds in the AI where it fits. Process first.">
+  <meta property="og:description" content="Every business runs on systems. Most were never written down. Upstream maps how yours run, systemizes them, and builds in the AI where it fits. Process first.">
   <meta property="og:url" content="https://upstreamconsulting.ca/">
   <meta property="og:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
   <meta property="og:image:width" content="1200">
@@ -24,7 +32,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
   <meta name="twitter:title" content="AI &amp; Operations Consultant in BC | Upstream Consulting">
-  <meta name="twitter:description" content="Every business runs on systems — most were never written down. Upstream maps how yours run, systemizes them, and builds in the AI where it fits. Process first.">
+  <meta name="twitter:description" content="Every business runs on systems. Most were never written down. Upstream maps how yours run, systemizes them, and builds in the AI where it fits. Process first.">
 
   <!-- ProfessionalService JSON-LD -->
   <script type="application/ld+json">
@@ -33,7 +41,7 @@
     "@type": "ProfessionalService",
     "name": "Upstream Consulting",
     "alternateName": "Upstream Consulting Solutions Inc.",
-    "description": "Operations and AI integration consulting for small and mid-sized businesses in British Columbia, Canada.",
+    "description": "Tools that quote, track and run the job for contractors, trades and field service businesses in British Columbia, Canada, plus Claude set up properly for their teams.",
     "url": "https://upstreamconsulting.ca/",
     "email": "levi@upstreamconsulting.ca",
     "image": "https://upstreamconsulting.ca/images/og-card.jpg",
@@ -52,18 +60,31 @@
       "name": "Levi Dick"
     },
     "knowsAbout": [
-      "AI integration",
-      "operations consulting",
-      "business systems development",
-      "project delivery",
+      "quote and estimate tools for contractors",
+      "project tracking for owners and builders",
+      "CRM inside Microsoft 365",
+      "Claude setup and training for teams",
+      "operations consulting for trades and field service businesses",
       "workflow automation"
     ]
   }
   </script>
-
-  <link rel="stylesheet" href="/styles.css?v=4">
+  <link rel="stylesheet" href="/styles.css?v=5">
+  <link rel="stylesheet" href="/motion.css?v=1">
   <style>
-    /* Splash landing "clear the desk" hero — page-scoped */
+    /* Page tokens: type and layout only. */
+    :root {
+      --font-label: 'Syne', 'Arial', sans-serif;
+      --nav-h: 76px;
+      --logo-h: 52px;
+      --edge: max(24px, calc((100% - var(--max-width)) / 2 + 24px));
+    }
+
+    /* ----------------------------------------------------------------
+       Desk hero: copied verbatim from the live /index.html so the page
+       looks and behaves exactly as it does today. These colour values
+       are the live page's own, not new ones.
+       ---------------------------------------------------------------- */
     .ai-desk{position:relative;min-height:100vh;overflow:hidden;isolation:isolate;cursor:crosshair;
       background:radial-gradient(1200px 600px at 70% -10%, rgba(216,163,107,.10), transparent 60%),
       radial-gradient(900px 500px at 0% 110%, rgba(91,122,94,.08), transparent 60%),
@@ -88,41 +109,109 @@
     .ai-hint.hide{opacity:0;}
     .ai-reveal .cta .btn-outline{color:#fff;border-color:rgba(255,255,255,.5);}
     .ai-reveal .cta .btn-outline:hover{background:#fff;color:var(--charcoal);border-color:#fff;}
-
-    /* Splash logo — minimal masthead, no nav menu */
     .splash-logo{position:fixed;top:26px;left:28px;z-index:10;display:flex;align-items:center;gap:12px;text-decoration:none;}
     .splash-logo img{height:52px;width:auto;filter:invert(1);}
     .splash-logo span{font-family:'Aboreto',serif;font-weight:400;font-size:1.4rem;line-height:1.14;text-transform:uppercase;letter-spacing:.12em;color:#F4EEE6;white-space:nowrap;}
     .splash-logo:hover span{color:#D8A36B;}
     @media (max-width:900px){.ai-reveal{padding-top:120px;}.splash-logo{top:18px;left:18px;}.splash-logo img{height:42px;}.splash-logo span{font-size:1.15rem;}}
     @media (prefers-reduced-motion:reduce){.ai-item{transition:none;}.ai-reveal .eyebrow,.ai-reveal .lead,.ai-reveal .cta{transition:none;}}
+
+    /* ARTIFACT-LOCAL OVERRIDES (page CSS starts here: tokens only, no raw hex or font names) */
+
+    /* Logo sits exactly where the home page nav logo sits, so it holds still through the hand off
+       (its transition name, site-logo, is set in /motion.css) */
+    .splash-logo { top: calc((var(--nav-h) - var(--logo-h)) / 2); left: var(--edge); }
+    .splash-logo img { height: var(--logo-h); }
+    @media (min-width: 901px) and (max-width: 1080px) { :root { --logo-h: 44px; } .splash-logo span { font-size: 1.12rem; } }
+    @media (max-width: 900px) {
+      .splash-logo { top: calc((var(--nav-h) - var(--logo-h)) / 2); left: 24px; }
+      .splash-logo img { height: var(--logo-h); }
+      .splash-logo span { font-size: 1.4rem; }
+    }
+    @media (max-width: 480px) { :root { --logo-h: 40px; } .splash-logo span { font-size: 1.05rem; } }
+
+    /* Skip: visible from the first moment */
+    .intro-skip {
+      position: fixed; z-index: 11;
+      top: calc((var(--nav-h) - 36px) / 2); right: var(--edge);
+      height: 36px; display: inline-flex; align-items: center; padding: 0 18px;
+      font-family: var(--font-label); font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--off-white);
+      border: 1px solid color-mix(in srgb, var(--off-white) 45%, transparent); border-radius: 999px;
+      background: color-mix(in srgb, var(--charcoal) 70%, transparent);
+    }
+    .intro-skip:hover { color: var(--charcoal); background: var(--gold); border-color: var(--gold); }
+    @media (max-width: 900px) { .intro-skip { right: 24px; } }
+
+    /* Page to page hand off (calm crossfade, the logo holds still) lives in /motion.css */
+
+    @media print {
+      .intro-skip, .ai-clutter, .ai-hint { display: none !important; }
+      .ai-reveal .eyebrow, .ai-reveal .lead, .ai-reveal .cta, .ai-reveal h1 { opacity: 1 !important; transform: none !important; }
+    }
   </style>
 </head>
 <body>
 
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- Splash masthead — logo only, no nav (deliberate: maximize first impression) -->
-  <a href="/" class="splash-logo" aria-label="Upstream Consulting — home">
+  <!-- Splash masthead: logo and Skip only, no menu (as on the live landing) -->
+  <a href="/home/" class="splash-logo" aria-label="Upstream Consulting, go to the home page">
     <img src="/images/logo-symbol.png" alt="Upstream Consulting">
     <span>Upstream<br>Consulting</span>
   </a>
+  <a href="/home/" class="intro-skip">Skip</a>
 
-  <!-- Hero — clear the desk -->
+  <!-- Hero: clear the desk -->
   <section class="ai-desk" id="ai-desk">
     <div class="ai-reveal" id="aiReveal">
       <a id="main" tabindex="-1"></a>
       <div class="eyebrow">Operations + AI Consulting</div>
       <h1>Get out from under the paperwork.</h1>
-      <p class="lead">Every business runs on systems — most were never written down. Upstream maps how yours actually run, systemizes them, and builds in the AI where it earns its place. Process first, based in BC.</p>
+      <p class="lead">Every business runs on systems. Most were never written down. Upstream maps how yours actually run, systemizes them, and builds in the AI where it earns its place. Process first, based in BC.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="/home/">Learn more</a>
+        <a class="btn btn-primary" id="learnMore" href="/home/">Learn more</a>
       </div>
     </div>
     <div class="ai-clutter" id="aiClutter" aria-hidden="true"></div>
     <div class="ai-hint" id="aiHint"><span class="dot"></span> Sweep your cursor across the desk</div>
   </section>
 
-  <script src="/ai-hero.js" defer></script>
+  <script>
+    /* Hand off to the home page once the headline has had time to be read.
+       Desk clears (auto at 3.2 s, or sooner once about half the papers are swept),
+       the reveal fades in over about 1 s, then a 2 s hold, then location.replace().
+       No timer for keyboard users (any Tab or focus) or with reduced motion.
+       In a background tab it waits until the page is on screen, then holds again. */
+    (function(){
+      var HOME = '/home/', KEY = 'upstreamDeskSeen', REVEAL_MS = 1000, HOLD_MS = 2000;
+      var desk = document.getElementById('ai-desk');
+      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var held = false, timer = null, done = false;
+      function hold(){ held = true; if (timer) { clearTimeout(timer); timer = null; } }
+      document.addEventListener('keydown', function(e){ if (e.key === 'Tab') hold(); });
+      document.addEventListener('focusin', hold);
+      if (reduce) { var b = document.getElementById('learnMore'); if (b) b.textContent = 'Continue'; }
+      desk.addEventListener('deskcleared', function(e){
+        if (done) return; done = true;
+        try { sessionStorage.setItem(KEY, '1'); } catch (err) {}
+        if (reduce || (e.detail && e.detail.reduced) || held) return;
+        function go(){
+          if (held) return;
+          if (document.hidden) {
+            document.addEventListener('visibilitychange', function shown(){
+              if (document.hidden) return;
+              document.removeEventListener('visibilitychange', shown);
+              timer = setTimeout(go, HOLD_MS);
+            });
+            return;
+          }
+          location.replace(HOME);
+        }
+        timer = setTimeout(go, REVEAL_MS + HOLD_MS);
+      });
+    })();
+  </script>
+  <script src="/desk-hero.js" defer></script>
 </body>
 </html>

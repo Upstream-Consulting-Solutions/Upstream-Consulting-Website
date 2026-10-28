@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/images/favicon-256.png">
+  <link rel="apple-touch-icon" href="/images/favicon-256.png">
+  <title>Work | Upstream Consulting</title>
+  <meta name="description" content="What we've built lately: an estimating platform for a retaining wall manufacturer, an instant quote estimator, a project hub for owners and builders, and a CRM inside Microsoft 365.">
+  <link rel="canonical" href="https://upstreamconsulting.ca/work/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Work | Upstream Consulting">
+  <meta property="og:description" content="What we've built lately: an estimating platform for a retaining wall manufacturer, an instant quote estimator, a project hub for owners and builders, and a CRM inside Microsoft 365.">
+  <meta property="og:url" content="https://upstreamconsulting.ca/work/">
+  <meta property="og:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Upstream Consulting">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
+  <meta name="twitter:title" content="Work | Upstream Consulting">
+  <meta name="twitter:description" content="What we've built lately: an estimating platform for a retaining wall manufacturer, an instant quote estimator, a project hub for owners and builders, and a CRM inside Microsoft 365.">
+
+  <!-- CollectionPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Work",
+    "url": "https://upstreamconsulting.ca/work/",
+    "description": "What we've built lately: an estimating platform for a retaining wall manufacturer, an instant quote estimator, a project hub for owners and builders, and a CRM inside Microsoft 365.",
+    "isPartOf": { "@type": "WebSite", "name": "Upstream Consulting", "url": "https://upstreamconsulting.ca/" },
+    "publisher": { "@type": "Organization", "name": "Upstream Consulting", "url": "https://upstreamconsulting.ca" }
+  }
+  </script>
+  <link rel="stylesheet" href="/styles.css?v=5">
+  <link rel="stylesheet" href="/motion.css?v=1">
+  <style>
+    /* Page tokens: type and layout only. Every colour below comes from the :root tokens in /styles.css. */
+    :root {
+      --font-label: 'Syne', 'Arial', sans-serif;
+      --font-display: 'Aboreto', Georgia, serif;
+      --font-body: 'Gotu', Georgia, serif;
+      --nav-h: 76px;
+      --top-h: var(--nav-h);
+    }
+
+    /* ARTIFACT-LOCAL OVERRIDES (marker read by check-artifact.js; no hex, no raw font names below) */
+
+    /* Shared helpers */
+    .label {
+      font-family: var(--font-label); font-size: .72rem; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--charcoal);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;
+    }
+    .label::before { content: ''; flex: 0 0 24px; height: 2px; background: var(--gold); }
+    .label.on-dark { color: var(--gold); }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2rem; }
+    .btn-row.center { justify-content: center; }
+    .tag {
+      display: inline-block; font-family: var(--font-label); font-size: .66rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--charcoal);
+      border: 1px solid var(--gray-200); background: var(--white); border-radius: 999px; padding: 3px 10px;
+    }
+    .shot-placeholder {
+      display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px;
+      aspect-ratio: 16 / 10;
+      background: repeating-linear-gradient(135deg, var(--gray-100) 0 14px, var(--off-white) 14px 28px);
+      color: var(--gray-600); font-family: var(--font-label); font-size: .74rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase; line-height: 1.5;
+    }
+
+    /* Page hero */
+    .page-hero { background: var(--charcoal); padding: calc(var(--top-h) + 64px) 0 64px; position: relative; overflow: hidden; }
+    .page-hero::before {
+      content: ''; position: absolute; top: -140px; right: -110px; width: 420px; height: 420px; border-radius: 50%;
+      background: radial-gradient(circle, color-mix(in srgb, var(--gold) 16%, transparent) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero h1 { color: var(--white); font-size: clamp(1.9rem, 3.8vw, 3rem); line-height: 1.12; max-width: 20ch; margin-bottom: 1.1rem; }
+    .page-hero .lead { color: color-mix(in srgb, var(--white) 80%, transparent); font-size: 1.12rem; max-width: 640px; }
+    .jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2rem; list-style: none; }
+    .jump a {
+      display: inline-block; padding: 8px 16px; border-radius: 999px; font-size: .92rem;
+      color: var(--white); border: 1px solid color-mix(in srgb, var(--white) 30%, transparent);
+    }
+    .jump a:hover { color: var(--charcoal); background: var(--gold); border-color: var(--gold); }
+
+    /* One case per section */
+    .case { scroll-margin-top: var(--top-h); padding: 88px 0; }
+    .case + .case { border-top: 1px solid var(--gray-200); }
+    .case:nth-of-type(odd) { background: var(--off-white); }
+    .case-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 56px; align-items: start; }
+    .case:nth-of-type(even) .case-shot { order: -1; }
+    .case-meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 1rem; }
+    .case-num { font-family: var(--font-display); font-size: 1.6rem; line-height: 1; color: var(--gold); }
+    .case h2 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); margin-bottom: .4rem; }
+    .case-for { color: var(--gray-600); font-style: italic; margin-bottom: 1.8rem; }
+    .case-block { border-top: 1px solid var(--gray-200); padding-top: 1rem; margin-top: 1.4rem; }
+    .case-block h3 {
+      font-family: var(--font-label); font-size: .74rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--charcoal); margin-bottom: .5rem;
+    }
+    .case-block p, .case-block li { font-size: 1.02rem; line-height: 1.65; }
+    .case-block ul, .case-block ol { padding-left: 1.2rem; }
+    .case-block li + li { margin-top: .35rem; }
+    .case-block .note { margin-top: .8rem; padding-left: 14px; border-left: 2px solid var(--gold); }
+    .case-shot { margin: 0; position: sticky; top: calc(var(--top-h) + 24px); }
+    .shot-frame { border: 1px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; background: var(--white); }
+    .shot-frame img { width: 100%; height: auto; }
+    .case-shot figcaption { font-size: .86rem; color: var(--gray-600); margin-top: .7rem; line-height: 1.5; }
+
+    /* Close */
+    .work-close { text-align: center; }
+    .work-close h2 { max-width: 22ch; margin: 0 auto .75rem; }
+    .work-close p { max-width: 540px; margin: 0 auto; }
+
+    @media (max-width: 1024px) {
+      .case-grid { grid-template-columns: 1fr; gap: 32px; }
+      .case:nth-of-type(even) .case-shot { order: 0; }
+      .case-shot { position: static; max-width: 720px; }
+    }
+    @media (max-width: 768px) {
+      .page-hero { padding: calc(var(--top-h) + 36px) 0 48px; }
+      .case { padding: 56px 0; }
+    }
+    @media (max-width: 480px) { .btn-row .btn { width: 100%; text-align: center; } }
+
+    @media print {
+      .nav, .back-to-top { display: none !important; }
+      .page-hero { padding-top: 32px; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .case-shot { position: static; }
+      .case { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/home/" class="nav-logo"><img src="/images/logo-symbol.png" alt="Upstream Consulting"><span>Upstream<br>Consulting</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/ai-integration/">AI for Your Team</a></li>
+        <li><a href="/ways-to-work/">Ways to Work</a></li>
+        <li><a href="/behind-the-work/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li class="nav-signin-item"><a href="https://hub.upstreamconsulting.ca" class="nav-signin">Client sign-in</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" tabindex="-1">
+
+    <!-- Hero -->
+    <section class="page-hero" aria-labelledby="work-title">
+      <div class="container">
+        <p class="label on-dark">Work</p>
+        <h1 id="work-title">What we've built, and what it changed.</h1>
+        <p class="lead">Four recent builds. Each one is a tool the business owns, built around how the team already works. Here's the short version of each: the problem, what we built, and what changed.</p>
+        <ul class="jump" aria-label="On this page">
+          <li><a href="#retaining-wall">Retaining wall platform</a></li>
+          <li><a href="#estimator">Instant quote estimator</a></li>
+          <li><a href="#hub">Project hub</a></li>
+          <li><a href="#crm">CRM in Microsoft 365</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- a. Retaining wall manufacturer -->
+    <section class="case" id="retaining-wall" aria-labelledby="rw-title">
+      <div class="container case-grid">
+        <div>
+          <div class="case-meta"><span class="case-num">01</span><span class="tag">Client work</span></div>
+          <h2 id="rw-title">Estimating and product platform</h2>
+          <p class="case-for">For a retaining wall manufacturer.</p>
+          <div class="case-block">
+            <h3>The problem</h3>
+            <p>It started as a basic estimating idea in a single spreadsheet. The product needed estimating, documentation, training and one place for clients to find it all.</p>
+          </div>
+          <div class="case-block">
+            <h3>What we built</h3>
+            <ul>
+              <li>An estimating system: civil data points go in, and out come cost estimates and a visual of the retaining wall.</li>
+              <li>A guard rail evaluation calculator, and a geotechnical calculator with a user guide.</li>
+              <li>A 33 page installation manual covering an 11 stage process, plus a technical manual and a QA checklist.</li>
+              <li>An engineering details booklet and product cutsheets.</li>
+              <li>A lunch and learn training presentation, as slides and video.</li>
+              <li>A web portal where clients reach the documentation.</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <h3>What changed</h3>
+            <p>From a single spreadsheet to a complete product ecosystem. What began as an estimating idea is now a fully integrated product platform.</p>
+          </div>
+        </div>
+        <figure class="case-shot">
+          <div class="shot-frame"><div class="shot-placeholder">Screenshot to come: estimate and retaining wall visual</div></div>
+          <figcaption>Placeholder until an approved screenshot is ready.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- b. Estimator -->
+    <section class="case" id="estimator" aria-labelledby="estimator-title">
+      <div class="container case-grid">
+        <div>
+          <div class="case-meta"><span class="case-num">02</span><span class="tag">Sample built, not live yet</span></div>
+          <h2 id="estimator-title">Instant quote estimator</h2>
+          <p class="case-for">For a pressure washing company.</p>
+          <div class="case-block">
+            <h3>The problem</h3>
+            <p>A homeowner wants a rough price before they book anyone. Most companies can't give one without a callback or a drive out first.</p>
+          </div>
+          <div class="case-block">
+            <h3>What we built</h3>
+            <ol>
+              <li>The customer types their address.</li>
+              <li>The tool finds the building's outline in the City's public map data.</li>
+              <li>It asks a few quick questions: storeys, surfaces, extras.</li>
+              <li>It shows an early price within minutes, from the company's own rate card.</li>
+            </ol>
+            <p class="note">Every price is labelled an early estimate and confirmed at the site visit. Steep roofs and unusual jobs are flagged for a site visit instead of an instant price.</p>
+          </div>
+          <div class="case-block">
+            <h3>What changed</h3>
+            <p>The sample is built. It isn't live yet, so there are no results to report.</p>
+          </div>
+        </div>
+        <div class="est-visual">
+          <div class="est-track">
+            <figure class="est-drawing" id="est-drawing">
+              <div class="est-stage">
+                <svg class="est-svg" viewBox="0 0 420 436" role="img" focusable="false" aria-label="Line drawing of the estimator in four steps. One, type an address: 123 Sample Street is typed and a pin drops on a simple street grid. Two, we find the outline: the building footprint is traced and measured, perimeter 164 feet. Three, walls and storeys: the walls rise into a two storey house with the gutter line marked. Four, three ways to do it: Good, $965 to $1,205; Better, $1,210 to $1,515; Best, $1,775 to $2,220; each an early estimate, confirmed at your site visit. Sample rates.">
+                <defs>
+                <radialGradient id="estFadeGrad" gradientUnits="userSpaceOnUse" cx="210" cy="190" r="250"><stop offset="0" class="est-stop-on"/><stop offset=".62" class="est-stop-on"/><stop offset="1" class="est-stop-off"/></radialGradient>
+                <mask id="estFade" maskUnits="userSpaceOnUse" x="0" y="0" width="420" height="436"><rect x="0" y="60" width="420" height="376" fill="url(#estFadeGrad)"/></mask>
+                </defs>
+                <g class="est-ground" mask="url(#estFade)">
+                <path class="est-block" d="M183.3 -250.8 L411.2 -119.2 L202.7 1.2 L-25.2 -130.4 Z M-78.6 -99.6 L149.4 32 L-59.2 152.4 L-287.1 20.8 Z M-340.5 51.6 L-112.5 183.2 L-321.1 303.6 L-549 172 Z M464.6 -88.4 L692.5 43.2 L484 163.6 L256 32 Z M202.7 62.8 L430.6 194.4 L222.1 314.8 L-5.8 183.2 Z M-59.2 214 L168.8 345.6 L-39.8 466 L-267.7 334.4 Z M745.9 74 L973.8 205.6 L765.3 326 L537.3 194.4 Z M484 225.2 L711.9 356.8 L503.4 477.2 L275.4 345.6 Z M222.1 376.4 L450 508 L241.5 628.4 L13.6 496.8 Z"/>
+                <path class="est-nb" d="M440.3 278.4 L513.1 320.4 L445.2 359.6 L372.4 317.6 Z M556.7 340 L629.5 382 L547 429.6 L474.3 387.6 Z M-64 250.4 L33 306.4 L-34.9 345.6 L-131.9 289.6 Z M62.1 317.6 L125.1 354 L37.8 404.4 L-25.2 368 Z M-98 -38 L-1 18 L-73.7 60 L-170.7 4 Z M23.3 15.2 L81.5 48.8 L-1 96.4 L-59.2 62.8 Z M207.5 418.4 L290 466 L222.1 505.2 L139.7 457.6 Z M328.8 477.2 L396.7 516.4 L309.4 566.8 L241.5 527.6 Z M445.2 -32.4 L551.9 29.2 L464.6 79.6 L357.9 18 Z M542.2 51.6 L595.5 82.4 L503.4 135.6 L450 104.8 Z M711.9 138.4 L808.9 194.4 L726.5 242 L629.5 186 Z M-316.2 116 L-219.2 172 L-306.5 222.4 L-403.5 166.4 Z M168.8 -192 L265.7 -136 L178.5 -85.6 L81.5 -141.6 Z"/>
+                <path class="est-lot" d="M202.7 90.8 L377.3 191.6 L217.2 284 L42.7 183.2 Z"/>
+                </g>
+                <g class="est-fp">
+                <path class="est-fp-fill" d="M193 130 L309.4 197.2 L226.9 244.8 L110.6 177.6 Z"/>
+                <path class="est-fp-line" d="M226.9 244.8 L110.6 177.6 L193 130 L309.4 197.2 Z" pathLength="1"/>
+                <circle class="est-dot" cx="193" cy="130" r="2.6"/>
+                <circle class="est-dot" cx="309.4" cy="197.2" r="2.6"/>
+                <circle class="est-dot" cx="226.9" cy="244.8" r="2.6"/>
+                <circle class="est-dot" cx="110.6" cy="177.6" r="2.6"/>
+                </g>
+                <g class="est-pin-wrap" transform="translate(210 187.4)">
+                <ellipse class="est-pin-shadow" cx="0" cy="0" rx="7.5" ry="3"/>
+                <g class="est-pin"><path class="est-pin-body" d="M0 0 C-3 -7 -9 -12.5 -9 -21.5 A9 9 0 1 1 9 -21.5 C9 -12.5 3 -7 0 0 Z"/><circle class="est-pin-eye" cx="0" cy="-21.5" r="3.3"/></g>
+                </g>
+                <g class="est-walls">
+                <g transform="matrix(2.4249 1.4000 0 2.8000 110.55 177.60)"><g class="est-rise"><path class="est-face" d="M0 0 H48 V-20 H0 Z"/><path class="est-floor" d="M0 -10 H48"/><path class="est-win" d="M7 -17.5 H13 V-13 H7 Z M21 -17.5 H27 V-13 H21 Z M35 -17.5 H41 V-13 H35 Z M7 -7.5 H13 V-3.5 H7 Z M35 -7.5 H41 V-3.5 H35 Z M21.5 0 V-8 H26.5 V0"/></g></g>
+                <g transform="matrix(2.4249 -1.4000 0 2.8000 226.95 244.80)"><g class="est-rise est-rise-2"><path class="est-face" d="M0 0 H34 V-20 L17 -29 L0 -20 Z"/><path class="est-floor" d="M0 -10 H34"/><path class="est-win" d="M6 -17.5 H12 V-13 H6 Z M22 -17.5 H28 V-13 H22 Z M6 -7.5 H12 V-3.5 H6 Z M22 -7.5 H28 V-3.5 H22 Z"/></g></g>
+                </g>
+                <g class="est-roof">
+                <path class="est-roof-b" d="M151.8 72.6 L268.2 139.8 L309.4 141.2 L193 74 Z"/>
+                <path class="est-roof-f" d="M110.6 121.6 L226.9 188.8 L268.2 139.8 L151.8 72.6 Z"/>
+                <path class="est-hatch" d="M130 132.8 L171.2 83.8 M149.4 144 L190.6 95 M168.8 155.2 L210 106.2 M188.2 166.4 L229.4 117.4 M207.5 177.6 L248.8 128.6"/>
+                </g>
+                <path class="est-gutter" d="M110.6 121.6 L226.9 188.8 L226.9 244.8" pathLength="1"/>
+                <g class="est-storeys">
+                <path class="est-dim" d="M97.6 121.6 V177.6 M93.6 121.6 H101.6 M93.6 149.6 H101.6 M93.6 177.6 H101.6"/>
+                <text class="est-t-body" x="88.6" y="154.1" text-anchor="end">2 storeys</text>
+                </g>
+                <g class="est-perim">
+                <path class="est-lead" d="M314.4 197.2 H324.4"/>
+                <text class="est-t-label" x="328.4" y="191.2">PERIMETER</text>
+                <text class="est-t-num" x="328.4" y="212.2"><tspan class="est-count">164</tspan> ft</text>
+                </g>
+                <g class="est-addr">
+                <rect class="est-field" x="14" y="14" width="392" height="38" rx="6"/>
+                <g transform="translate(31 41) scale(.58)"><path class="est-pin-body" d="M0 0 C-3 -7 -9 -12.5 -9 -21.5 A9 9 0 1 1 9 -21.5 C9 -12.5 3 -7 0 0 Z"/></g>
+                <text class="est-t-addr" x="46" y="38.5"><tspan class="est-typed">123 Sample Street</tspan></text>
+                <path class="est-caret" d="M0 23.5 V43.5"/>
+                <circle class="est-go" cx="388" cy="33" r="11"/><path class="est-go-arrow" d="M383 33 H393 M389 29 L393 33 L389 37"/>
+                </g>
+                <g class="est-cards">
+                <g class="est-card"><rect class="est-card-bg" x="14" y="258" width="392" height="46" rx="6"/><text class="est-t-label est-t-dark" x="30" y="278">GOOD</text><text class="est-t-price" x="390" y="279" text-anchor="end">$965 to $1,205</text><text class="est-t-small" x="30" y="295">Early estimate, confirmed at your site visit</text></g>
+                <g class="est-card est-card-pick"><rect class="est-card-bg" x="14" y="312" width="392" height="46" rx="6"/><text class="est-t-label est-t-dark" x="30" y="332">BETTER</text><text class="est-t-price" x="390" y="333" text-anchor="end">$1,210 to $1,515</text><text class="est-t-small" x="30" y="349">Early estimate, confirmed at your site visit</text></g>
+                <g class="est-card"><rect class="est-card-bg" x="14" y="366" width="392" height="46" rx="6"/><text class="est-t-label est-t-dark" x="30" y="386">BEST</text><text class="est-t-price" x="390" y="387" text-anchor="end">$1,775 to $2,220</text><text class="est-t-small" x="30" y="403">Early estimate, confirmed at your site visit</text></g>
+                <text class="est-t-small est-note" x="406" y="429" text-anchor="end">Sample rates</text>
+                </g>
+                </svg>
+              </div>
+              <figcaption class="est-steps">
+                <ol>
+                  <li class="est-step"><span class="est-step-n" aria-hidden="true">01</span>Type an address</li>
+                  <li class="est-step"><span class="est-step-n" aria-hidden="true">02</span>We find the outline</li>
+                  <li class="est-step"><span class="est-step-n" aria-hidden="true">03</span>Walls and storeys</li>
+                  <li class="est-step"><span class="est-step-n" aria-hidden="true">04</span>Three ways to do it</li>
+                </ol>
+              </figcaption>
+            </figure>
+          </div>
+          <figure class="est-real">
+            <p class="label">The real screen</p>
+            <div class="shot-frame"><img src="/images/work/estimator-options.png" width="998" height="587" alt="Estimator options screen: three ways to do the same house, Essentials, Full Exterior and Year Round Care, each with an early price range and the line early estimate, confirmed at your site visit."></div>
+            <figcaption>The options screen from the sample build. Sample rates; company details removed.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- c. Project hub -->
+    <section class="case" id="hub" aria-labelledby="hub-title">
+      <div class="container case-grid">
+        <div>
+          <div class="case-meta"><span class="case-num">03</span><span class="tag">Running for our own projects</span></div>
+          <h2 id="hub-title">Project hub</h2>
+          <p class="case-for">For owners, developers and the teams running their builds.</p>
+          <div class="case-block">
+            <h3>The problem</h3>
+            <p>On a build, the budget, the reviews and the approvals sit in different places, and the answer to "where are we" depends on who you ask.</p>
+          </div>
+          <div class="case-block">
+            <h3>What we built</h3>
+            <ul>
+              <li>One place for portfolio, preconstruction and construction admin.</li>
+              <li>One sign in and one access list for the whole team.</li>
+              <li>Claude works from the same records, so the answer in chat matches the screen.</li>
+              <li>Reviews that run today: budget oversight, cost tracking, capital approval prep, site issue documentation, schedule delay review and cost impact analysis.</li>
+            </ul>
+            <p class="note">Anything that changes a status goes through an approval. A single review can be shared with an outside consultant through a link they can view but not change.</p>
+          </div>
+          <div class="case-block">
+            <h3>What changed</h3>
+            <p>We run our own projects on it today.</p>
+          </div>
+        </div>
+        <figure class="case-shot">
+          <div class="shot-frame"><img src="/images/work/hub-reviews-board.png" width="956" height="560" alt="Reviews board for a sample project, Harbour Mews Townhomes, with reviews in four columns: open, findings ready, approved and rejected. Each review has an Ask Claude button."></div>
+          <figcaption>The reviews board for a sample project. Sample data.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- d. CRM -->
+    <section class="case" id="crm" aria-labelledby="crm-title">
+      <div class="container case-grid">
+        <div>
+          <div class="case-meta"><span class="case-num">04</span><span class="tag">We run our own pipeline on it</span></div>
+          <h2 id="crm-title">A CRM in your Microsoft 365</h2>
+          <p class="case-for">For firms that already run on Microsoft 365.</p>
+          <div class="case-block">
+            <h3>The problem</h3>
+            <p>Most CRMs are one more system to keep up to date, so the pipeline drifts back into a spreadsheet and someone's inbox.</p>
+          </div>
+          <div class="case-block">
+            <h3>What we built</h3>
+            <ul>
+              <li>Accounts, contacts, deals and reminders to follow up, kept in lists inside the company's own Microsoft 365.</li>
+              <li>You ask Claude to add a contact, log a call or move a deal.</li>
+            </ul>
+            <p class="note">Every change leaves a record of who made it. The AI never deletes anything. The data never leaves the company's own Microsoft 365.</p>
+          </div>
+          <div class="case-block">
+            <h3>What changed</h3>
+            <p>We run our own pipeline on it.</p>
+          </div>
+        </div>
+        <figure class="case-shot">
+          <div class="shot-frame"><div class="shot-placeholder">Screenshot to come: the pipeline board with sample accounts</div></div>
+          <figcaption>Placeholder until a screenshot with sample data is ready.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Close -->
+    <section class="dark-section cta-section work-close" aria-labelledby="close-title">
+      <div class="container">
+        <h2 id="close-title">Want one of these pointed at your business?</h2>
+        <p>Start with a free intro call. A few questions about how your business runs, no pitch.</p>
+        <div class="btn-row center">
+          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary">Book a free intro call</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h2 class="footer-h">Upstream Consulting</h2>
+          <p class="footer-tagline">We build the tools that quote, track and run the job, and set Claude up properly for your team.</p>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-h">Services</h2>
+          <a href="/work/">Work</a>
+          <a href="/ai-integration/">AI for Your Team</a>
+          <a href="/ways-to-work/">Ways to Work</a>
+          <a href="/real-estate-development/">Real Estate Development</a>
+          <a href="/sample-builds/">Sample Builds</a>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-h">Company</h2>
+          <a href="/home/">Home</a>
+          <a href="/behind-the-work/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/faqs/">FAQ</a>
+          <a href="/legal/">Legal</a>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-h">Get in Touch</h2>
+          <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a>
+          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">Book a free intro call</a>
+          <p class="footer-meta">British Columbia, Canada</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Upstream Consulting Solutions Inc. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+  <!-- Minimal JS: hamburger + back-to-top + nav shadow (same behaviour as the live pages) -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  <script>
+  (function(){
+    var norm = location.pathname.replace(/index\.html$/,'');
+    document.querySelectorAll('#navLinks a[href]').forEach(function(a){
+      if (a.getAttribute('href') === norm) a.classList.add('active');
+    });
+  })();
+  </script>
+  <script src="/site-enhance.js" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+</body>
+</html>

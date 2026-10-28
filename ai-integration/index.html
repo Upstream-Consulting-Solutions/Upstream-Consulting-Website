@@ -6,14 +6,14 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="256x256" href="/images/favicon-256.png">
   <link rel="apple-touch-icon" href="/images/favicon-256.png">
-  <title>AI Integration for Brick &amp; Mortar Operators | Upstream Consulting</title>
-  <meta name="description" content="Person-by-person AI integration for brick and mortar operators. Structured rollouts, enterprise security, and ongoing optimization — not generic Copilot deployments.">
+  <title>AI for Your Team | Upstream Consulting</title>
+  <meta name="description" content="Claude set up properly for contractors, trades, field service and project teams. Getting Started from $1,500 plus GST, or a rollout across the whole company.">
   <link rel="canonical" href="https://upstreamconsulting.ca/ai-integration/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AI Integration for Brick &amp; Mortar Operators | Upstream Consulting">
-  <meta property="og:description" content="Person-by-person AI integration for brick and mortar operators. Structured rollouts, enterprise security, and ongoing optimization — not generic Copilot deployments.">
+  <meta property="og:title" content="AI for Your Team | Upstream Consulting">
+  <meta property="og:description" content="Claude set up properly for contractors, trades, field service and project teams. Getting Started from $1,500 plus GST, or a rollout across the whole company.">
   <meta property="og:url" content="https://upstreamconsulting.ca/ai-integration/">
   <meta property="og:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
   <meta property="og:image:width" content="1200">
@@ -23,285 +23,307 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
-  <meta name="twitter:title" content="AI Integration for Brick &amp; Mortar Operators | Upstream Consulting">
-  <meta name="twitter:description" content="Person-by-person AI integration for brick and mortar operators. Structured rollouts, enterprise security, and ongoing optimization — not generic Copilot deployments.">
+  <meta name="twitter:title" content="AI for Your Team | Upstream Consulting">
+  <meta name="twitter:description" content="Claude set up properly for contractors, trades, field service and project teams. Getting Started from $1,500 plus GST, or a rollout across the whole company.">
+  <link rel="stylesheet" href="/styles.css?v=5">
+  <link rel="stylesheet" href="/motion.css?v=1">
+  <style>
+    /* Page tokens: type and layout only. Every colour below comes from the :root tokens in /styles.css. */
+    :root {
+      --font-label: 'Syne', 'Arial', sans-serif;
+      --font-display: 'Aboreto', Georgia, serif;
+      --font-body: 'Gotu', Georgia, serif;
+      --nav-h: 76px;
+      --top-h: var(--nav-h);
+    }
 
-  <link rel="stylesheet" href="/styles.css?v=4">
+    /* ARTIFACT-LOCAL OVERRIDES (marker read by check-artifact.js; no hex, no raw font names below) */
+
+    /* Shared helpers */
+    .label {
+      font-family: var(--font-label); font-size: .72rem; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--charcoal);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;
+    }
+    .label::before { content: ''; flex: 0 0 24px; height: 2px; background: var(--gold); }
+    .label.on-dark { color: var(--gold); }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2rem; }
+    .btn-row.center { justify-content: center; }
+    .btn-outline.on-light { color: var(--charcoal); border-color: var(--charcoal); }
+    .btn-outline.on-light:hover { background: var(--charcoal); color: var(--white); }
+    .btn-outline.on-dark { color: var(--white); border-color: color-mix(in srgb, var(--white) 55%, transparent); }
+    .btn-outline.on-dark:hover { background: var(--white); color: var(--charcoal); border-color: var(--white); }
+    .section-head { max-width: 720px; margin-bottom: 2.5rem; }
+    .section-head h2 { margin-bottom: .5rem; }
+    .section-head .section-sub { margin-bottom: 0; }
+
+    /* Page hero */
+    .page-hero { background: var(--charcoal); padding: calc(var(--top-h) + 64px) 0 72px; position: relative; overflow: hidden; }
+    .page-hero::before {
+      content: ''; position: absolute; top: -140px; right: -110px; width: 420px; height: 420px; border-radius: 50%;
+      background: radial-gradient(circle, color-mix(in srgb, var(--gold) 16%, transparent) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero h1 { color: var(--white); font-size: clamp(1.9rem, 3.8vw, 3rem); line-height: 1.12; max-width: 18ch; margin-bottom: 1.1rem; }
+    .page-hero .lead { color: color-mix(in srgb, var(--white) 80%, transparent); font-size: 1.12rem; max-width: 640px; }
+    .page-hero .lead + .lead { margin-top: .9rem; }
+
+    /* Getting Started offer */
+    .offer { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 0; border: 1px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; background: var(--white); }
+    .offer-main { padding: 40px 44px; }
+    .offer-main h3 { font-size: 1.5rem; margin-bottom: .4rem; }
+    .offer-main .offer-what { color: var(--gray-600); margin-bottom: 1.6rem; }
+    .offer-list { list-style: none; counter-reset: incl; }
+    .offer-list li {
+      counter-increment: incl; display: grid; grid-template-columns: 38px 1fr; gap: 4px;
+      padding: 14px 0; border-top: 1px solid var(--gray-200); font-size: 1.02rem; line-height: 1.6;
+    }
+    .offer-list li::before {
+      content: counter(incl, decimal-leading-zero); font-family: var(--font-label); font-size: .72rem;
+      font-weight: 600; letter-spacing: .08em; color: var(--gray-600); padding-top: 4px;
+    }
+    .offer-side { background: var(--charcoal); color: var(--white); padding: 40px 36px; display: flex; flex-direction: column; }
+    .offer-side p { color: color-mix(in srgb, var(--white) 80%, transparent); font-size: .98rem; line-height: 1.6; }
+    .offer-side .offer-price { font-family: var(--font-display); font-size: 2.6rem; line-height: 1.1; color: var(--white); margin-bottom: .2rem; }
+    .offer-side .offer-price-note { color: var(--gold); font-family: var(--font-label); font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 1.6rem; }
+    .offer-side .btn-row { margin-top: auto; padding-top: 1.6rem; }
+    .offer-side .btn { width: 100%; text-align: center; }
+
+    /* Who it's for */
+    .who-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: start; }
+    .who-list { list-style: none; border-top: 2px solid var(--charcoal); }
+    .who-list li { padding: 14px 0; border-bottom: 1px solid var(--gray-200); font-size: 1.05rem; }
+    .why-list { list-style: none; display: grid; gap: 22px; }
+    .why-list h3 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .3rem; }
+    .why-list p { font-size: 1rem; line-height: 1.65; color: var(--charcoal); }
+
+    /* Company wide rollout */
+    .phase-card .card-body h3 { margin-bottom: .8rem; }
+    .phase-card .card-body li { font-size: .98rem; line-height: 1.6; }
+    .pricing-note { max-width: 680px; margin-top: 2.2rem; font-size: 1.02rem; color: var(--charcoal); }
+
+    @media (max-width: 1024px) {
+      .offer { grid-template-columns: 1fr; }
+      .who-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .page-hero { padding: calc(var(--top-h) + 36px) 0 52px; }
+      .offer-main { padding: 28px 22px; }
+      .offer-side { padding: 28px 22px; }
+      .offer-side .offer-price { font-size: 2.1rem; }
+    }
+    @media (max-width: 480px) { .btn-row .btn { width: 100%; text-align: center; } }
+
+    @media print {
+      .nav, .back-to-top { display: none !important; }
+      .page-hero { padding-top: 32px; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .offer, .phase-card { break-inside: avoid; }
+    }
+  </style>
 </head>
-<body class="has-subnav">
+<body>
 
   <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Navigation -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/" class="nav-logo"><img src="/images/logo-symbol.png" alt="Upstream Consulting"><span>Upstream<br>Consulting</span></a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <a href="/home/" class="nav-logo"><img src="/images/logo-symbol.png" alt="Upstream Consulting"><span>Upstream<br>Consulting</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="/home/">Home</a></li>
-        <li><a href="/behind-the-work/">Behind the Work</a></li>
-        <li><a href="/ai-integration/" class="active">AI Integration</a></li>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/ai-integration/">AI for Your Team</a></li>
         <li><a href="/ways-to-work/">Ways to Work</a></li>
-        <li><a href="/red/">Real Estate Dev</a></li>
-        <li><a href="/system-development/">Systems Dev</a></li>
+        <li><a href="/behind-the-work/">About</a></li>
         <li><a href="/contact/">Contact</a></li>
+        <li class="nav-signin-item"><a href="https://hub.upstreamconsulting.ca" class="nav-signin">Client sign-in</a></li>
       </ul>
     </div>
   </nav>
-  <!-- Section sub-nav -->
-  <nav class="subnav" aria-label="AI Integration section">
-    <div class="subnav-inner">
-      <a href="/ai-integration/" class="active">Overview</a>
-      <a href="/sample-builds/">Sample Builds</a>
-    </div>
-  </nav>
 
-  <!-- Hero -->
-  <section class="hero hero--photo" style="background-image:linear-gradient(rgba(29,29,31,.62) 0%, rgba(29,29,31,.72) 100%), url('/images/service-ai.jpg');">
-    <div class="container">
-      <h1>Get out from under the paperwork.</h1>
-      <p>Your team is buried in the work a system should be doing. Upstream clears it — map the workflow, systemize it, and put AI where it earns its place. Person by person, workflow by workflow.</p>
-      <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary">Book a free intro call</a>
-      <a href="/ways-to-work/" class="btn btn-outline" style="margin-left:12px;">Ways to Work</a>
-    </div>
-  </section>
+  <main id="main" tabindex="-1">
 
-  <!-- Intro -->
-  <section class="section" id="main" tabindex="-1">
-    <div class="container" style="max-width:760px;">
-      <p style="font-size:1.15rem; line-height:1.75;">Your team is already using AI. The question is whether it's structured, secure, and actually making them better at their jobs — or whether it's a collection of personal ChatGPT accounts leaking your IP into training data.</p>
-      <p style="margin-top:1rem;">Generic rollouts fail. Most AI tools get rolled out and quietly ignored — the license gets bought, the tool gets opened once, and then the team drifts back to how they always worked.</p>
-      <p style="margin-top:1rem; font-weight:600; color:var(--charcoal);">I structure the workflow first. AI goes in second, onto a process that already works — that's the difference between adoption and a license nobody opens twice.</p>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- Three Problems -->
-  <section class="section">
-    <div class="container">
-      <h2>Three Problems Nobody Wants to Talk About</h2>
-      <div class="cards-grid-3" style="margin-top: 2.5rem;">
-        <div class="card phase-card">
-          <div class="card-body">
-            <p>Someone in the org needs to own this. Not the IT department. Not the CEO who read an article. A real person who understands the workflows and has the credibility to drive adoption. Most rollouts skip this step entirely.</p>
-          </div>
-          <div class="card-label">No Champion</div>
-        </div>
-        <div class="card phase-card">
-          <div class="card-body">
-            <p>Buying licenses isn't a strategy. Without individual intake — actually learning how each person works — you're guessing at what tools to deploy and how to configure them. Guessing is what produces the tool nobody opens twice.</p>
-          </div>
-          <div class="card-label">No Process</div>
-        </div>
-        <div class="card phase-card">
-          <div class="card-body">
-            <p>Enterprise agreements, zero data retention, permission trees, usage policies. The security and governance layer that turns "employees using AI" into "employees using AI safely." Skip this and you have a material risk sitting in every browser tab.</p>
-          </div>
-          <div class="card-label">No Structure</div>
+    <!-- Hero -->
+    <section class="page-hero" aria-labelledby="ai-title">
+      <div class="container">
+        <p class="label on-dark">AI for your team</p>
+        <h1 id="ai-title">Your team is already using AI.</h1>
+        <p class="lead">The question is whether it's set up for your business or scattered across personal accounts. We set Claude up properly: connected to the work your team already does, with the privacy settings handled, and a team that knows how to use it.</p>
+        <div class="btn-row">
+          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary">Book a free intro call</a>
+          <a href="/ways-to-work/" class="btn btn-outline on-dark">Ways to work with us</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Person by Person -->
-  <section class="section alt-bg">
-    <div class="container">
-      <h2>Person by Person. Workflow by Workflow.</h2>
-      <p class="section-sub">6 weeks from kickoff to operational.</p>
-      <div class="cards-grid" style="margin-top: 1rem;">
-
-        <!-- ASSESS -->
-        <div class="card phase-card">
-          <div class="card-body">
-            <h3>Assess</h3>
-            <ul>
-              <li><strong>Executive Intake:</strong> 60 min with leadership. Org structure, tools, pain points, shadow AI audit.</li>
-              <li><strong>Champion Selection:</strong> 3-5 internal champions identified and scored.</li>
-              <li><strong>Workforce Intake:</strong> 60-90 min per employee. Multi-category work classifications.</li>
-              <li><strong>Engagement Prep:</strong> Risk assessment, tool recommendations, estimate, implementation proposal.</li>
-            </ul>
+    <!-- Getting Started -->
+    <section class="alt-bg" aria-labelledby="start-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="label">Where most teams start</p>
+          <h2 id="start-title">Getting Started</h2>
+          <p class="section-sub">A working session plus Claude Team setup. Your team leaves connected, secured and using it on their own work.</p>
+        </div>
+        <div class="offer">
+          <div class="offer-main">
+            <h3>What's included</h3>
+            <p class="offer-what">One working session with your team, plus the setup around it.</p>
+            <ol class="offer-list">
+              <li>Every connector your team needs, signed up with you.</li>
+              <li>Privacy and security settings set, with a plain summary so you don't have to worry about them.</li>
+              <li>We teach what Claude is and how to use it on your own work.</li>
+              <li>A guide we leave behind, already connected to your workspaces.</li>
+              <li>We show you the tools we've already built that you could use.</li>
+            </ol>
           </div>
-          <div class="card-label">Phase 1 — Assess</div>
-        </div>
-
-        <!-- INTAKE -->
-        <div class="card phase-card">
-          <div class="card-body">
-            <h3>Intake</h3>
-            <ul>
-              <li><strong>Individual Sessions:</strong> 60-90 min per person. Written intake classifies work into five categories — delegate, manual, repetitive, research, math/data.</li>
-              <li><strong>Scenario Mapping:</strong> Natural conversation validates what the form captured and surfaces hidden workflows.</li>
-              <li><strong>Tool Matching:</strong> Dev Pack or Office Pack assigned based on role, technical level, and intake profile.</li>
-              <li><strong>Deliverables:</strong> Completed intake records, shadow AI risk report, tool recommendation matrix.</li>
-            </ul>
-          </div>
-          <div class="card-label">Phase 2 — Intake</div>
-        </div>
-
-        <!-- OPS ENGAGEMENT -->
-        <div class="card phase-card">
-          <div class="card-body">
-            <h3>Ops Engagement</h3>
-            <ul>
-              <li><strong>Backend Setup:</strong> Enterprise agreements, zero data retention, permission trees, usage policies.</li>
-              <li><strong>Unit Setup:</strong> Personalized install per employee — Dev Pack or Office Pack based on intake profile.</li>
-              <li><strong>Training:</strong> One-on-one, hands-on, using their actual workflows.</li>
-              <li><strong>Agent Creation:</strong> Global logic blocks → role patterns → individual workflows. All tested before handoff.</li>
-            </ul>
-          </div>
-          <div class="card-label">Phase 3 — Ops Engagement</div>
-        </div>
-
-        <!-- ONGOING -->
-        <div class="card phase-card">
-          <div class="card-body">
-            <h3>Ongoing</h3>
-            <ul>
-              <li><strong>Cost Reporting:</strong> Monthly spend reports by tool, team, user. Budget vs actual with trend lines.</li>
-              <li><strong>Seat Optimization:</strong> Quarterly usage audits. Who's active, who's idle, reallocation recommendations.</li>
-              <li><strong>Pattern Maintenance:</strong> Pattern library reviewed and updated on every model release. Version control, cleanup.</li>
-              <li><strong>Adoption Review:</strong> Quarterly executive briefing. ROI analysis, expansion recommendations, new hire onboarding.</li>
-            </ul>
-          </div>
-          <div class="card-label">Phase 4 — Ongoing</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Force Multiplier -->
-  <section class="dark-section" style="text-align:center;">
-    <div class="container">
-      <h2>Every Hour From Us Multiplies Your Team</h2>
-      <p style="max-width:680px; margin:1.5rem auto;">Every hour of AI integration work multiplies the efficiency of each employee it touches. This isn't a cost — it's a force multiplier across your entire operation.</p>
-      <div class="stats-row" style="margin-top:2rem;">
-        <div class="stat">
-          <div class="stat-number" style="font-size:1.6rem;">Person by person</div>
-          <div class="stat-label">Every workflow mapped before a tool is deployed</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number" style="font-size:1.6rem;">Zero retention</div>
-          <div class="stat-label">Enterprise agreements and data controls from day one</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">6 weeks</div>
-          <div class="stat-label">From kickoff to operational</div>
-        </div>
-      </div>
-      <p style="max-width:680px; margin:2rem auto 0; font-size:1.05rem;">The goal isn't a tool your team logs into. It's the hour a day that stops going to work the system should be doing — and the IP that stops leaking into personal accounts.</p>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- Built for Operators -->
-  <section class="section">
-    <div class="container">
-      <h2>Built for Operators, Not Tech Companies</h2>
-      <ul style="max-width: 680px; margin-top: 1.5rem; padding-left: 1.5rem; font-size: 1.05rem; line-height: 2;">
-        <li>Mid-market operators (20–500 employees)</li>
-        <li>Multi-location businesses — restaurants, retail, hospitality</li>
-        <li>Franchise groups with standardized operations</li>
-        <li>Commercial real estate — property managers, developers, contractors</li>
-        <li>Any brick &amp; mortar business where the work happens in the real world</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Straightforward Pricing -->
-  <section class="section alt-bg">
-    <div class="container">
-      <h2>Straightforward Pricing</h2>
-      <div class="cards-grid" style="margin-top: 2rem;">
-        <div class="card">
-          <div class="card-body">
-            <h3>Intake &amp; Setup</h3>
-            <p>Flat fee. You know the cost before we start. Covers executive intake, workforce intake, tool setup, training, and pattern library build.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h3>Ongoing Optimization</h3>
-            <p>Time and materials. Monthly cost reporting, pattern maintenance, seat optimization. Billed for actual hours worked.</p>
+          <div class="offer-side">
+            <p class="offer-price">From $1,500</p>
+            <p class="offer-price-note">plus GST</p>
+            <p>A working session plus Claude Team setup for your company.</p>
+            <div class="btn-row">
+              <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary">Book a free intro call</a>
+            </div>
           </div>
         </div>
       </div>
-      <p style="text-align: center; margin-top: 2rem; color: var(--gray-600); font-size: 1.05rem; max-width: 640px; margin-left: auto; margin-right: auto;">No retainers for work that isn't happening. No minimums. No long-term contracts unless you want one.</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- Timeline -->
-  <section class="section">
-    <div class="container">
-      <h2>What It Actually Looks Like</h2>
-      <div class="timeline" style="margin-top: 2.5rem;">
-        <div class="timeline-item">
-          <h4>Week 0</h4>
-          <p>Executive intake. 60 minutes. Shadow AI risk assessment.</p>
+    <!-- Who it's for + why setup matters -->
+    <section aria-labelledby="who-title">
+      <div class="container who-grid">
+        <div>
+          <p class="label">Who it's for</p>
+          <h2 id="who-title">Built for teams who work in the field</h2>
+          <ul class="who-list">
+            <li>Contractors and subcontractors</li>
+            <li>Trades and field service businesses</li>
+            <li>Owners, developers and the project teams running their builds</li>
+          </ul>
         </div>
-        <div class="timeline-item">
-          <h4>Weeks 1–2</h4>
-          <p>Champion intake, backend setup, enterprise agreements.</p>
+        <ul class="why-list">
+          <li>
+            <h3>Personal accounts, company work</h3>
+            <p>When everyone signs up on their own, company files end up in personal accounts with nobody setting the privacy rules. We put the team on one plan with the settings in place.</p>
+          </li>
+          <li>
+            <h3>A licence nobody opens twice</h3>
+            <p>Buying seats isn't a plan. We connect Claude to the work your team already does and show each person how to use it on that work.</p>
+          </li>
+          <li>
+            <h3>Nobody owns it</h3>
+            <p>Someone inside the company needs to own it after we leave. The guide, the connections and the settings are handed over to them.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Company wide rollout -->
+    <section class="alt-bg" aria-labelledby="rollout-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="label">The bigger option</p>
+          <h2 id="rollout-title">A rollout for the whole company</h2>
+          <p class="section-sub">Person by person, workflow by workflow, in four phases.</p>
         </div>
-        <div class="timeline-item">
-          <h4>Weeks 3–4</h4>
-          <p>Full workforce intake. Individual sessions with every employee.</p>
+        <div class="cards-grid">
+          <div class="card phase-card">
+            <div class="card-body">
+              <h3>Assess</h3>
+              <ul>
+                <li>An hour with leadership: how the company is set up, the tools in use, the pain points, and where AI is already being used without a plan.</li>
+                <li>3 to 5 internal champions picked to carry it inside the company.</li>
+                <li>A risk read, tool recommendations, an estimate and a proposal.</li>
+              </ul>
+            </div>
+            <div class="card-label">Phase 1 &middot; Assess</div>
+          </div>
+          <div class="card phase-card">
+            <div class="card-body">
+              <h3>Intake</h3>
+              <ul>
+                <li>60 to 90 minutes with each person. Their work sorted into five kinds: tasks to delegate, manual, repetitive, research, and math and data.</li>
+                <li>A conversation to catch the workflows the form missed.</li>
+                <li>A setup matched to each person's role and technical level.</li>
+                <li>Out of it: a record for each person, a risk report on unmanaged AI use, and a tool plan by role.</li>
+              </ul>
+            </div>
+            <div class="card-label">Phase 2 &middot; Intake</div>
+          </div>
+          <div class="card phase-card">
+            <div class="card-body">
+              <h3>Ops Engagement</h3>
+              <ul>
+                <li>The company layer first: enterprise agreements, zero data retention, permissions and usage policies.</li>
+                <li>A personal setup for each person, based on their intake.</li>
+                <li>Training with each person, using their actual workflows.</li>
+                <li>Workflows built for the company, for each role and for each person, all tested before handoff.</li>
+              </ul>
+            </div>
+            <div class="card-label">Phase 3 &middot; Ops Engagement</div>
+          </div>
+          <div class="card phase-card">
+            <div class="card-body">
+              <h3>Ongoing</h3>
+              <ul>
+                <li>Monthly spend reports by tool, team and user.</li>
+                <li>Quarterly usage reviews: who's active, who's idle, where seats should move.</li>
+                <li>Workflows reviewed and updated on every model release.</li>
+                <li>A quarterly briefing for leadership: what's paying off, where to expand, and onboarding for new hires.</li>
+              </ul>
+            </div>
+            <div class="card-label">Phase 4 &middot; Ongoing</div>
+          </div>
         </div>
-        <div class="timeline-item">
-          <h4>Weeks 5–6</h4>
-          <p>Training, pattern library handoff, governance docs. Team is operational.</p>
-        </div>
-        <div class="timeline-item">
-          <h4>Month 2+</h4>
-          <p>Ongoing optimization. Monthly reports, quarterly reviews.</p>
+        <p class="pricing-note">Intake and setup is a flat fee, known before we start. Ongoing work is billed for actual hours. No retainers for work that isn't happening, no minimums, and no long contracts unless you want one.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="dark-section cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title">Start with a conversation</h2>
+        <p>Book a free intro call. A few questions about how your team works today, no pitch.</p>
+        <div class="btn-row center">
+          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary">Book a free intro call</a>
+          <a href="/ways-to-work/" class="btn btn-outline on-dark">Ways to work with us</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="dark-section cta-section">
-    <div class="container">
-      <h2>Start With a Conversation</h2>
-      <p>Book a free 30-minute intro call. A few questions about your operations — no pitch, just diagnostics.</p>
-      <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary" style="margin-right: 12px;">Book a free intro call</a>
-      <br><br>
-      <a href="mailto:levi@upstreamconsulting.ca" style="color: var(--gold); font-size: 1rem;">levi@upstreamconsulting.ca</a>
-    </div>
-  </section>
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h4>Upstream Consulting</h4>
-          <p class="footer-tagline">I map how your business runs, systemize it, and build in the AI where it fits — one person, end to end.</p>
+          <h2 class="footer-h">Upstream Consulting</h2>
+          <p class="footer-tagline">We build the tools that quote, track and run the job, and set Claude up properly for your team.</p>
         </div>
         <div class="footer-col">
-          <h4>Services</h4>
-          <a href="/ai-integration/">AI Integration</a>
-          <a href="/sample-builds/">Sample Builds</a>
+          <h2 class="footer-h">Services</h2>
+          <a href="/work/">Work</a>
+          <a href="/ai-integration/">AI for Your Team</a>
           <a href="/ways-to-work/">Ways to Work</a>
-          <a href="/red/">Real Estate Dev</a>
-          <a href="/system-development/">Systems Dev</a>
+          <a href="/real-estate-development/">Real Estate Development</a>
+          <a href="/sample-builds/">Sample Builds</a>
         </div>
         <div class="footer-col">
-          <h4>Company</h4>
+          <h2 class="footer-h">Company</h2>
           <a href="/home/">Home</a>
-          <a href="/behind-the-work/">Behind the Work</a>
+          <a href="/behind-the-work/">About</a>
           <a href="/contact/">Contact</a>
           <a href="/faqs/">FAQ</a>
           <a href="/legal/">Legal</a>
         </div>
         <div class="footer-col">
-          <h4>Get in Touch</h4>
+          <h2 class="footer-h">Get in Touch</h2>
           <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a>
-          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">Book a call</a>
+          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">Book a free intro call</a>
           <p class="footer-meta">British Columbia, Canada</p>
         </div>
       </div>
@@ -314,10 +336,8 @@
   <!-- Back to Top -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
 
+  <!-- Minimal JS: hamburger + back-to-top + nav shadow (same behaviour as the live pages) -->
   <script>
-    const nav = document.getElementById('nav');
-
-    // Hamburger toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => {
@@ -325,8 +345,6 @@
       navLinks.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-
-    // Close menu on link click (mobile)
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');
@@ -334,72 +352,23 @@
         hamburger.setAttribute('aria-expanded', 'false');
       });
     });
-
-    // Back to top
     const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-    // Single scroll listener — nav shadow + back-to-top visibility
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 10);
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
   </script>
-
-<script>
-(function(){
-  var norm = location.pathname.replace(/index\.html$/,'');
-  if (norm === '') norm = '/';
-  document.querySelectorAll('#navLinks a[href]').forEach(function(a){
-    if (a.getAttribute('href') === norm) {
-      a.classList.add('active');
-      var dd = a.closest('.dropdown');
-      if (dd) { var p = dd.closest('.has-dropdown'); if (p) { var pa = p.querySelector(':scope > a'); if (pa) pa.classList.add('active'); } }
-    }
-  });
-})();
-</script>
-<script>
-(function(){
-  function closeAll(){ document.querySelectorAll('.has-dropdown.open').forEach(function(li){ li.classList.remove('open'); var a=li.querySelector('a'); if(a) a.setAttribute('aria-expanded','false'); }); }
-  document.querySelectorAll('.has-dropdown > a').forEach(function(t){
-    t.addEventListener('click', function(e){
-      if (window.innerWidth > 900) {
-        e.preventDefault();
-        var li = t.parentElement;
-        var willOpen = !li.classList.contains('open');
-        closeAll();
-        if (willOpen) { li.classList.add('open'); t.setAttribute('aria-expanded','true'); }
-      }
+  <script>
+  (function(){
+    var norm = location.pathname.replace(/index\.html$/,'');
+    document.querySelectorAll('#navLinks a[href]').forEach(function(a){
+      if (a.getAttribute('href') === norm) a.classList.add('active');
     });
-  });
-  document.addEventListener('click', function(e){ if (!e.target.closest('.has-dropdown')) closeAll(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAll(); });
-})();
-</script>
-<script>
-(function(){
-  function align(){
-    var inner = document.querySelector('.subnav-inner');
-    if (!inner) return;
-    if (window.innerWidth <= 900) { inner.style.transform = 'none'; return; }
-    var ai = document.querySelector('#navLinks a[href="/ai-integration/"]');
-    var active = document.querySelector('.subnav a.active');
-    if (!ai || !active) return;
-    inner.style.transform = 'none';
-    var aiR = ai.getBoundingClientRect();
-    var acR = active.getBoundingClientRect();
-    var dx = (aiR.left + aiR.width / 2) - (acR.left + acR.width / 2);
-    inner.style.transform = 'translateX(' + Math.round(dx) + 'px)';
-  }
-  window.addEventListener('load', align);
-  window.addEventListener('resize', align);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(align);
-  align();
-})();
-</script>
-<script src="/site-enhance.js" defer></script>
+  })();
+  </script>
+  <script src="/site-enhance.js" defer></script>
 </body>
 </html>

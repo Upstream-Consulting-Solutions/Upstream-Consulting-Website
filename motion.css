@@ -1,0 +1,146 @@
+/* Upstream pages: shared motion.
+   1. Page to page crossfade (every redesigned page links this file).
+   2. Work page: case stories stagger in, part by part (motion.js adds the classes).
+   3. Work page: the estimator line drawing.
+   Colours are the /styles.css tokens only. Fonts are the page's var(--font-*) tokens.
+   Calm and editorial: ease curves, no bounce, only transform, opacity and stroke-dashoffset move. */
+
+/* ---------- 1. Page transitions: calm crossfade, the logo holds still ---------- */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .5s; animation-timing-function: ease; }
+::view-transition-group(site-logo) { animation-duration: .5s; }
+.nav-logo, .splash-logo, .splash-logo:hover { view-transition-name: site-logo; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+
+/* ---------- 2. Work page: stagger inside each case story ---------- */
+/* site-enhance.js fades whole sections; on case stories only the parts move, so no double fade */
+.case.reveal, .case.reveal.is-visible { opacity: 1; transform: none; transition: none; }
+.st-ready .st-item {
+  opacity: 0; transform: translateY(12px);
+  transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.st-ready .st-item.st-in { opacity: 1; transform: none; }
+
+/* ---------- 3. Estimator drawing: layout ---------- */
+#estimator .est-visual { align-self: stretch; display: flex; flex-direction: column; min-width: 0; }
+.est-track { flex: 1 0 auto; }
+.est-drawing { margin: 0; }
+.est-stage { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; }
+.est-svg { display: block; width: 100%; height: auto; }
+.est-steps ol { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 14px 0 0; padding: 0; }
+.est-step { position: relative; padding-top: 10px; font-size: .86rem; line-height: 1.35; color: var(--charcoal); }
+.est-step::before, .est-step::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--gray-200); }
+.est-step::after { background: var(--gold); transform-origin: 0 50%; transition: transform .5s ease; }
+.est-step-n { display: block; font-family: var(--font-label); font-size: .66rem; font-weight: 600; letter-spacing: .12em; color: var(--gray-600); margin-bottom: 2px; }
+.est-real { margin: 36px 0 0; max-width: 380px; }
+.est-real .label { margin-bottom: .7rem; }
+.est-real figcaption { font-size: .86rem; color: var(--gray-600); margin-top: .7rem; line-height: 1.5; }
+@media (min-width: 900px) {
+  .est-drawing { position: sticky; top: calc(var(--top-h) + 24px); max-width: min(460px, calc((100vh - var(--top-h) - 150px) * .963)); }
+  .est-track::after { content: ''; display: block; height: 24vh; }
+}
+@media (max-width: 899px) { .est-steps ol { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 14px; } }
+
+/* ---------- 3b. Estimator drawing: the line work (default = finished final frame) ---------- */
+.est-svg text { font-family: var(--font-body); }
+.est-svg path, .est-svg rect, .est-svg circle, .est-svg ellipse { vector-effect: non-scaling-stroke; }
+.est-svg .est-fp-line, .est-svg .est-gutter { vector-effect: none; }
+.est-ground { opacity: .6; }
+.est-block { fill: none; stroke: var(--gray-400); stroke-width: 1; stroke-opacity: .65; }
+.est-nb { fill: var(--gray-100); stroke: var(--gray-400); stroke-width: 1; stroke-opacity: .35; }
+.est-lot { fill: none; stroke: var(--gray-400); stroke-width: 1; stroke-dasharray: 3 4; }
+.est-stop-on { stop-color: var(--white); stop-opacity: 1; }
+.est-stop-off { stop-color: var(--white); stop-opacity: 0; }
+.est-fp-fill { fill: var(--teal); fill-opacity: .1; }
+.est-fp-line { fill: none; stroke: var(--teal); stroke-width: 1.9; stroke-linejoin: round; stroke-dasharray: 1 2; stroke-dashoffset: 0; }
+.est-dot { fill: var(--teal); opacity: 0; }
+.est-pin-wrap { opacity: 0; }
+.est-pin-body { fill: var(--gold); stroke: var(--charcoal); stroke-width: 1; }
+.est-pin-eye { fill: var(--white); }
+.est-pin-shadow { fill: var(--charcoal); fill-opacity: .18; }
+.est-face { fill: var(--white); stroke: var(--charcoal); stroke-width: 1.25; stroke-linejoin: round; }
+.est-floor { fill: none; stroke: var(--gray-400); stroke-width: 1; stroke-dasharray: 2 3; }
+.est-win { fill: none; stroke: var(--charcoal); stroke-width: 1; stroke-linejoin: round; }
+.est-roof-f, .est-roof-b { stroke: var(--charcoal); stroke-width: 1.25; stroke-linejoin: round; }
+.est-roof-f { fill: var(--gray-100); }
+.est-roof-b { fill: var(--gray-200); }
+.est-hatch { fill: none; stroke: var(--gray-400); stroke-width: 1; stroke-opacity: .6; }
+.est-gutter { fill: none; stroke: var(--gold); stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 2; stroke-dashoffset: 0; }
+.est-dim { fill: none; stroke: var(--charcoal); stroke-width: 1; }
+.est-lead { fill: none; stroke: var(--teal); stroke-width: 1.25; }
+.est-field { fill: var(--white); stroke: var(--charcoal); stroke-width: 1.25; }
+.est-caret { stroke: var(--charcoal); stroke-width: 1.25; opacity: 0; }
+.est-go { fill: var(--charcoal); }
+.est-go-arrow { fill: none; stroke: var(--white); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.est-card-bg { fill: var(--white); stroke: var(--gray-200); stroke-width: 1; }
+.est-card-pick .est-card-bg { stroke: var(--gold); stroke-width: 1.5; }
+.est-t-body { font-size: 13.5px; fill: var(--charcoal); }
+.est-t-addr { font-size: 15px; fill: var(--charcoal); }
+.est-t-small { font-size: 12.5px; fill: var(--gray-600); }
+.est-svg .est-t-label { font-family: var(--font-label); font-size: 10.5px; font-weight: 600; letter-spacing: .12em; fill: var(--gray-600); }
+.est-svg .est-t-dark { fill: var(--charcoal); }
+.est-svg .est-t-num, .est-svg .est-t-price { font-family: var(--font-display); fill: var(--charcoal); }
+.est-t-num { font-size: 19px; }
+.est-t-price { font-size: 17px; }
+.est-rise { transform-box: fill-box; transform-origin: 50% 100%; }
+.est-pin-shadow, .est-card { transform-box: fill-box; transform-origin: 50% 50%; }
+
+/* ---------- 3c. Estimator drawing: the four beats (motion.js adds .est-anim, then .b1 to .b4) ---------- */
+.est-anim .est-step { opacity: .5; transition: opacity .4s ease; }
+.est-anim .est-step::after { transform: scaleX(0); }
+.est-anim .est-step.is-on { opacity: 1; }
+.est-anim .est-step.is-on::after { transform: none; }
+.est-anim .est-ground, .est-anim .est-fp-fill, .est-anim .est-fp-line, .est-anim .est-dot,
+.est-anim .est-pin-wrap, .est-anim .est-pin, .est-anim .est-pin-shadow, .est-anim .est-caret,
+.est-anim .est-rise, .est-anim .est-roof, .est-anim .est-gutter, .est-anim .est-storeys,
+.est-anim .est-perim, .est-anim .est-card, .est-anim .est-note {
+  transition: opacity .3s ease, transform .35s ease, stroke-dashoffset .3s ease;
+}
+/* Beat 1: the address types itself, a pin drops on the lot */
+.est-anim:not(.b2) .est-caret { opacity: 1; }
+.est-anim:not(.b1) .est-pin { transform: translateY(-60px); }
+.est-anim:not(.b1) .est-pin-shadow { opacity: 0; transform: scale(.3); }
+.est-anim.b1:not(.b3) .est-pin-wrap { opacity: 1; }
+.est-anim.b1:not(.b2) .est-pin-wrap { transition: opacity .3s ease .8s; }
+.est-anim.b1 .est-pin { transition: transform .6s cubic-bezier(.22,.61,.36,1) .8s; }
+.est-anim.b1 .est-pin-shadow { transition: opacity .4s ease 1.2s, transform .45s ease 1.2s; }
+/* Beat 2: the footprint traces itself, the perimeter counts up */
+.est-anim:not(.b2) .est-ground { opacity: 1; }
+.est-anim:not(.b2) .est-fp-line { stroke-dashoffset: 1.05; }
+.est-anim:not(.b2) .est-fp-fill { opacity: 0; }
+.est-anim:not(.b2) .est-perim { opacity: 0; transform: translateX(-8px); }
+.est-anim.b2:not(.b3) .est-dot { opacity: 1; transition: opacity .4s ease .9s; }
+.est-anim.b2 .est-ground { transition: opacity .8s ease; }
+.est-anim.b2 .est-fp-line { transition: stroke-dashoffset 1s cubic-bezier(.45,.05,.35,1); }
+.est-anim.b2 .est-fp-fill { transition: opacity .5s ease .7s; }
+.est-anim.b2 .est-perim { transition: opacity .5s ease .3s, transform .6s cubic-bezier(.22,.61,.36,1) .3s; }
+/* Beat 3: walls rise into a two storey house, gutter line in gold */
+.est-anim:not(.b3) .est-rise { opacity: 0; transform: scaleY(0); }
+.est-anim:not(.b3) .est-roof { opacity: 0; transform: translateY(-10px); }
+.est-anim:not(.b3) .est-gutter { stroke-dashoffset: 1.05; }
+.est-anim:not(.b3) .est-storeys { opacity: 0; }
+.est-anim.b3 .est-rise { transition: transform .65s cubic-bezier(.22,.61,.36,1), opacity .2s ease; }
+.est-anim.b3 .est-rise-2 { transition-delay: .08s; }
+.est-anim.b3 .est-roof { transition: opacity .45s ease .5s, transform .55s cubic-bezier(.22,.61,.36,1) .5s; }
+.est-anim.b3 .est-gutter { transition: stroke-dashoffset .6s ease .85s; }
+.est-anim.b3 .est-storeys { transition: opacity .5s ease .7s; }
+/* Beat 4: three option cards slide in */
+.est-anim:not(.b4) .est-card { opacity: 0; transform: translateX(28px); }
+.est-anim:not(.b4) .est-note { opacity: 0; }
+.est-anim.b4 .est-card { transition: opacity .5s ease, transform .6s cubic-bezier(.22,.61,.36,1); }
+.est-anim.b4 .est-card:nth-of-type(2) { transition-delay: .11s; }
+.est-anim.b4 .est-card:nth-of-type(3) { transition-delay: .22s; }
+.est-anim.b4 .est-note { transition: opacity .5s ease .45s; }
+
+/* ---------- Reduced motion and print: everything shown, nothing moves ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .st-ready .st-item { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .est-anim *, .est-anim *::after { transition: none !important; }
+}
+@media print {
+  .st-ready .st-item { opacity: 1 !important; transform: none !important; }
+  .est-drawing { position: static; }
+  .est-track::after { display: none; }
+}

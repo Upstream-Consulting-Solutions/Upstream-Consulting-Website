@@ -3,7 +3,9 @@
 /behind-the-work.html /behind-the-work/ 301
 /ai-integration.html /ai-integration/ 301
 /red.html /red/ 301
-/system-development.html /system-development/ 301
+/system-development.html /work/ 301
+/system-development/ /work/ 301
+/system-development /work/ 301
 /contact.html /contact/ 301
 /faq.html /faqs/ 301
 /faqs.html /faqs/ 301

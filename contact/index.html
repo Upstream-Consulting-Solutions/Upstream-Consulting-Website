@@ -6,19 +6,24 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="256x256" href="/images/favicon-256.png">
   <link rel="apple-touch-icon" href="/images/favicon-256.png">
-  <title>Contact Upstream Consulting | Book a Session</title>
-  <meta name="description" content="Get in touch with Upstream Consulting. Book a free 30-minute intro call — a few questions about your operations, no pitch — or send a message.">
+  <title>Contact Upstream Consulting</title>
+  <meta name="description" content="Send Upstream a note or book a free intro call. We reply within one business day.">
   <link rel="canonical" href="https://upstreamconsulting.ca/contact/">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact Upstream Consulting | Book a Session">
-  <meta property="og:description" content="Get in touch with Upstream Consulting. Book a free 30-minute intro call — a few questions about your operations, no pitch — or send a message.">
+  <meta property="og:title" content="Contact Upstream Consulting">
+  <meta property="og:description" content="Send Upstream a note or book a free intro call. We reply within one business day.">
   <meta property="og:url" content="https://upstreamconsulting.ca/contact/">
   <meta property="og:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Upstream Consulting">
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://upstreamconsulting.ca/images/og-card.jpg">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -45,7 +50,97 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="/styles.css?v=4">
+  <link rel="stylesheet" href="/styles.css?v=5">
+  <link rel="stylesheet" href="/motion.css?v=1">
+
+  <style>
+  /* Font tokens: the same families /styles.css declares, named so page rules can use var(--font-*) */
+  :root {
+    --font-heading: 'Aboreto', Georgia, serif;
+    --font-body:    'Gotu', Georgia, serif;
+    --font-button:  'Syne', Arial, sans-serif;
+  }
+
+  @media print {
+    .nav, .back-to-top, .hamburger { display: none; }
+    .site-footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     ARTIFACT-LOCAL OVERRIDES — page layout only.
+     Colours come from /styles.css tokens via var(--*).
+     ══════════════════════════════════════════════════════════ */
+
+  /* ── Hero ── */
+  .contact-hero { padding-bottom: 64px; }
+  .contact-hero h1 { max-width: 760px; }
+
+  /* ── Contact grid ── */
+  .contact-main { padding-top: 48px; }
+  .contact-h2 { margin-bottom: 1.5rem; }
+  .book-card .contact-h2 { margin-bottom: 1rem; }
+
+  .form-note {
+    margin-top: .75rem;
+    font-size: .85rem;
+    color: var(--gray-600);
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+  .form-note svg { flex: 0 0 auto; width: 14px; height: 14px; color: var(--teal); position: relative; top: 2px; }
+  .form-confirm {
+    margin-top: .75rem;
+    padding: 10px 14px;
+    border-left: 3px solid var(--gold);
+    background: var(--off-white);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: .9rem;
+    color: var(--charcoal);
+  }
+  .form-confirm[hidden] { display: none; }
+
+  .book-card {
+    background: var(--off-white);
+    border-radius: var(--radius);
+    padding: 40px;
+  }
+  .book-card p { color: var(--gray-600); margin-bottom: 1.5rem; }
+  .book-card .book-btn {
+    display: block;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 18px 32px;
+    margin-bottom: 1.5rem;
+  }
+  .book-card .book-email { text-align: center; color: var(--charcoal); margin-bottom: 0; }
+
+  /* ── What happens next ── */
+  .next-steps h2 { margin-bottom: .5rem; }
+  .next-steps .section-sub { margin-bottom: 2rem; }
+  .next-list { list-style: none; }
+  .next-list .timeline-item:last-child { margin-bottom: 0; }
+  .next-list .step-num {
+    display: block;
+    font-family: var(--font-button);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gray-600);
+    margin-bottom: .15rem;
+  }
+  .next-list h3 { font-size: 1.15rem; margin-bottom: .25rem; }
+  .next-list p { font-size: 1rem; color: var(--gray-600); }
+  .next-list .timeline-item::before { top: 28px; }
+
+  @media (max-width: 768px) {
+    .contact-hero { padding-bottom: 48px; }
+    .contact-main { padding-top: 40px; }
+    .book-card { padding: 28px 22px; }
+    .book-card .book-btn { font-size: 1rem; padding: 16px 20px; }
+  }
+  </style>
 </head>
 <body>
 
@@ -54,78 +149,103 @@
   <!-- Navigation -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/" class="nav-logo"><img src="/images/logo-symbol.png" alt="Upstream Consulting"><span>Upstream<br>Consulting</span></a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <a href="/home/" class="nav-logo"><img src="/images/logo-symbol.png" alt="Upstream Consulting"><span>Upstream<br>Consulting</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="/home/">Home</a></li>
-        <li><a href="/behind-the-work/">Behind the Work</a></li>
-        <li><a href="/ai-integration/">AI Integration</a></li>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/ai-integration/">AI for Your Team</a></li>
         <li><a href="/ways-to-work/">Ways to Work</a></li>
-        <li><a href="/red/">Real Estate Dev</a></li>
-        <li><a href="/system-development/">Systems Dev</a></li>
+        <li><a href="/behind-the-work/">About</a></li>
         <li><a href="/contact/">Contact</a></li>
+        <li class="nav-signin-item"><a href="https://hub.upstreamconsulting.ca" class="nav-signin">Client sign-in</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero contact-hero">
     <div class="container">
-      <h1>Talk to Levi</h1>
-      <p>One person, start to finish. Let's start the conversation.</p>
+      <h1>Talk to Us</h1>
+      <p>Tell us what's slowing the work down. Send a note below, or book a free intro call.</p>
     </div>
   </section>
 
   <div class="section-divider"></div>
 
   <!-- Contact Section -->
-  <section id="main">
+  <section id="main" tabindex="-1" class="contact-main">
     <div class="container">
       <div class="contact-grid">
 
         <!-- Left: Contact Form -->
         <div>
-          <h2 style="margin-bottom:1.5rem;">Send Us a Message</h2>
-          <form id="contactForm">
+          <h2 class="contact-h2">Send Us a Message</h2>
+          <form id="contactForm" method="post" aria-describedby="formRoute">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
+              <input type="text" id="name" name="name" autocomplete="name" required>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
+              <input type="email" id="email" name="email" autocomplete="email" required>
             </div>
             <div class="form-group">
               <label for="business">Business Name</label>
-              <input type="text" id="business" name="business">
+              <input type="text" id="business" name="business" autocomplete="organization">
             </div>
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone">
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
             </div>
             <div class="form-group">
               <label for="description">Project Type &amp; Description</label>
               <textarea id="description" name="description" rows="6" placeholder="Tell us about your project or what you're looking to solve..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            <p style="margin-top:.75rem; font-size:.85rem; color:var(--gray-600);">This opens your email app with the message pre-filled — nothing is stored on this site.</p>
-            <p id="formConfirm" hidden aria-live="polite" style="margin-top:.75rem; font-size:.85rem; color:var(--gray-600);">Your email app should open with the message pre-filled. If it doesn't, email <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a> directly.</p>
+            <button type="submit" class="btn btn-primary" id="sendBtn">Send Message</button>
+            <p class="form-note" id="formRoute">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>This opens your email app with the message filled in. Nothing is stored on this site.</span>
+            </p>
+            <p class="form-confirm" id="formConfirm" hidden aria-live="polite">Your email app should open with the message filled in. If it doesn't, email <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a> directly.</p>
           </form>
         </div>
 
         <!-- Right: Book Directly -->
-        <div style="background:var(--off-white); border-radius:var(--radius); padding:40px;">
-          <h2 style="margin-bottom:1rem;">Prefer to book directly?</h2>
-          <p style="margin-bottom:1.5rem; color:var(--gray-600);">Schedule a free 30-minute intro call. A few questions about your operations — no pitch, just diagnostics.</p>
-          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary" style="display:block; text-align:center; font-size:1.1rem; padding:18px 32px; margin-bottom:1.5rem;">Book a free intro call</a>
-          <p style="text-align:center;">
-            <strong>Email:</strong> <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a>
-          </p>
+        <div class="book-card">
+          <h2 class="contact-h2">Prefer to book directly?</h2>
+          <p>A free intro call, about 30 minutes. A few questions about how your work runs. No pitch.</p>
+          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener" class="btn btn-primary book-btn">Book a free intro call</a>
+          <p class="book-email"><strong>Email:</strong> <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a></p>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- What happens next -->
+  <section class="alt-bg next-steps" aria-labelledby="next-title">
+    <div class="container">
+      <h2 id="next-title">What Happens Next</h2>
+      <p class="section-sub">After you send a note.</p>
+      <ol class="timeline next-list">
+        <li class="timeline-item">
+          <span class="step-num">Step 1</span>
+          <h3>We get your note</h3>
+          <p>The form opens your email app with your note filled in. Press send and it comes to us.</p>
+        </li>
+        <li class="timeline-item">
+          <span class="step-num">Step 2</span>
+          <h3>We reply within one business day</h3>
+          <p>To the email you gave us.</p>
+        </li>
+        <li class="timeline-item">
+          <span class="step-num">Step 3</span>
+          <h3>If there's a fit, we book a call</h3>
+          <p>A free intro call to look at the work together. If there isn't a fit, we'll say so.</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -134,29 +254,29 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h4>Upstream Consulting</h4>
-          <p class="footer-tagline">I map how your business runs, systemize it, and build in the AI where it fits — one person, end to end.</p>
+          <h2 class="footer-h">Upstream Consulting</h2>
+          <p class="footer-tagline">We build the tools that quote, track and run the job, and set Claude up properly for your team.</p>
         </div>
         <div class="footer-col">
-          <h4>Services</h4>
-          <a href="/ai-integration/">AI Integration</a>
-          <a href="/sample-builds/">Sample Builds</a>
+          <h2 class="footer-h">Services</h2>
+          <a href="/work/">Work</a>
+          <a href="/ai-integration/">AI for Your Team</a>
           <a href="/ways-to-work/">Ways to Work</a>
-          <a href="/red/">Real Estate Dev</a>
-          <a href="/system-development/">Systems Dev</a>
+          <a href="/real-estate-development/">Real Estate Development</a>
+          <a href="/sample-builds/">Sample Builds</a>
         </div>
         <div class="footer-col">
-          <h4>Company</h4>
+          <h2 class="footer-h">Company</h2>
           <a href="/home/">Home</a>
-          <a href="/behind-the-work/">Behind the Work</a>
+          <a href="/behind-the-work/">About</a>
           <a href="/contact/">Contact</a>
           <a href="/faqs/">FAQ</a>
           <a href="/legal/">Legal</a>
         </div>
         <div class="footer-col">
-          <h4>Get in Touch</h4>
+          <h2 class="footer-h">Get in Touch</h2>
           <a href="mailto:levi@upstreamconsulting.ca">levi@upstreamconsulting.ca</a>
-          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">Book a call</a>
+          <a href="https://cal.com/upstream-consulting/intro-upstream" target="_blank" rel="noopener">Book a free intro call</a>
           <p class="footer-meta">British Columbia, Canada</p>
         </div>
       </div>
@@ -173,9 +293,9 @@
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('open');
+      const open = hamburger.classList.toggle('open');
       navLinks.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
@@ -184,11 +304,12 @@
         hamburger.setAttribute('aria-expanded', 'false');
       });
     });
+
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       backToTop.classList.toggle('visible', window.scrollY > 400);
       document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
-    });
+    }, { passive: true });
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -209,38 +330,15 @@
       document.getElementById('formConfirm').hidden = false;
     });
   </script>
-
-<script>
-(function(){
-  var norm = location.pathname.replace(/index\.html$/,'');
-  if (norm === '') norm = '/';
-  document.querySelectorAll('#navLinks a[href]').forEach(function(a){
-    if (a.getAttribute('href') === norm) {
-      a.classList.add('active');
-      var dd = a.closest('.dropdown');
-      if (dd) { var p = dd.closest('.has-dropdown'); if (p) { var pa = p.querySelector(':scope > a'); if (pa) pa.classList.add('active'); } }
-    }
-  });
-})();
-</script>
-<script>
-(function(){
-  function closeAll(){ document.querySelectorAll('.has-dropdown.open').forEach(function(li){ li.classList.remove('open'); var a=li.querySelector('a'); if(a) a.setAttribute('aria-expanded','false'); }); }
-  document.querySelectorAll('.has-dropdown > a').forEach(function(t){
-    t.addEventListener('click', function(e){
-      if (window.innerWidth > 900) {
-        e.preventDefault();
-        var li = t.parentElement;
-        var willOpen = !li.classList.contains('open');
-        closeAll();
-        if (willOpen) { li.classList.add('open'); t.setAttribute('aria-expanded','true'); }
-      }
+  <script>
+  (function(){
+    var norm = location.pathname.replace(/index\.html$/,'');
+    if (norm === '') norm = '/';
+    document.querySelectorAll('#navLinks a[href]').forEach(function(a){
+      if (a.getAttribute('href') === norm) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); }
     });
-  });
-  document.addEventListener('click', function(e){ if (!e.target.closest('.has-dropdown')) closeAll(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAll(); });
-})();
-</script>
-<script src="/site-enhance.js" defer></script>
+  })();
+  </script>
+  <script src="/site-enhance.js" defer></script>
 </body>
 </html>

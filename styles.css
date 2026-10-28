@@ -1026,3 +1026,47 @@ section {
   }
   .reveal { opacity: 1 !important; transform: none !important; }
 }
+
+/* ============================================
+   Menu (2026-10-28 rework): Client sign-in button,
+   logo sizing and the phone menu, shared by every page.
+   Footer headings are h2.footer-h for heading order,
+   styled like the earlier footer h4.
+   ============================================ */
+.nav-inner { gap: 24px; }
+.nav-logo { flex-shrink: 0; }
+.nav-links a.nav-signin {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid color-mix(in srgb, var(--gold) 70%, transparent);
+  border-radius: var(--radius);
+  color: var(--white);
+}
+.nav-links a.nav-signin::after { display: none; }
+.nav-links a.nav-signin:hover { border-color: var(--gold); color: var(--gold); }
+.footer-col .footer-h {
+  font-family: 'Gotu', Georgia, serif;
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0 0 1rem;
+}
+@media (min-width: 901px) and (max-width: 1080px) {
+  .nav-logo img { height: 44px; }
+  .nav-logo span { font-size: 1.12rem; }
+  .nav-links { gap: 16px; }
+}
+@media (max-width: 900px) {
+  .nav-links { max-height: calc(100vh - 76px); overflow-y: auto; background: var(--charcoal); }
+  .nav-links:not(.open) { visibility: hidden; transition: transform .3s ease, visibility 0s linear .3s; }
+  .nav-links.open { visibility: visible; transition: transform .3s ease; }
+  .nav-links .nav-signin-item { border-top: 1px solid color-mix(in srgb, var(--white) 12%, transparent); margin-top: 6px; padding: 12px 24px 8px; }
+  .nav-links a.nav-signin { padding: 10px 18px; }
+}
+@media (max-width: 480px) {
+  .nav-logo img { height: 40px; }
+  .nav-logo span { font-size: 1.05rem; }
+}
