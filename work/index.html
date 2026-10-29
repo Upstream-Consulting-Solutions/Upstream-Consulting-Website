@@ -97,6 +97,7 @@
     .case + .case { border-top: 1px solid var(--gray-200); }
     .case:nth-of-type(odd) { background: var(--off-white); }
     .case-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 56px; align-items: start; }
+    .case-grid--text { grid-template-columns: minmax(0, 760px); }
     .case:nth-of-type(even) .case-shot { order: -1; }
     .case-meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 1rem; }
     .case-num { font-family: var(--font-display); font-size: 1.6rem; line-height: 1; color: var(--gold); }
@@ -182,7 +183,7 @@
 
     <!-- a. Retaining wall manufacturer -->
     <section class="case" id="retaining-wall" aria-labelledby="rw-title">
-      <div class="container case-grid">
+      <div class="container case-grid case-grid--text">
         <div>
           <div class="case-meta"><span class="case-num">01</span><span class="tag">Client work</span></div>
           <h2 id="rw-title">Estimating and product platform</h2>
@@ -207,10 +208,6 @@
             <p>From a single spreadsheet to a complete product ecosystem. What began as an estimating idea is now a fully integrated product platform.</p>
           </div>
         </div>
-        <figure class="case-shot">
-          <div class="shot-frame"><div class="shot-placeholder">Screenshot to come: estimate and retaining wall visual</div></div>
-          <figcaption>Placeholder until an approved screenshot is ready.</figcaption>
-        </figure>
       </div>
     </section>
 
@@ -354,7 +351,7 @@
 
     <!-- d. CRM -->
     <section class="case" id="crm" aria-labelledby="crm-title">
-      <div class="container case-grid">
+      <div class="container case-grid case-grid--text">
         <div>
           <div class="case-meta"><span class="case-num">04</span><span class="tag">We run our own pipeline on it</span></div>
           <h2 id="crm-title">A CRM in your Microsoft 365</h2>
@@ -376,10 +373,6 @@
             <p>We run our own pipeline on it.</p>
           </div>
         </div>
-        <figure class="case-shot">
-          <div class="shot-frame"><div class="shot-placeholder">Screenshot to come: the pipeline board with sample accounts</div></div>
-          <figcaption>Placeholder until a screenshot with sample data is ready.</figcaption>
-        </figure>
       </div>
     </section>
 
